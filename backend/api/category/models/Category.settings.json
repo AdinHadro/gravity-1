@@ -1,0 +1,50 @@
+{
+  "connection": "default",
+  "collectionName": "categories",
+  "info": {
+    "name": "category",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": [
+      "created_at",
+      "updated_at"
+    ],
+    "comment": ""
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "parentCategory": {
+      "model": "category",
+      "via": "subCategories"
+    },
+    "subCategories": {
+      "collection": "category",
+      "via": "parentCategory"
+    },
+    "topLevel": {
+      "type": "boolean"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
+    },
+    "url": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "order": {
+      "type": "integer"
+    },
+    "products": {
+      "collection": "product",
+      "dominant": true,
+      "via": "categories"
+    }
+  }
+}

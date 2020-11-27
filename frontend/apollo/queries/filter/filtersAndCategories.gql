@@ -1,0 +1,42 @@
+query FiltersAndCategories($where: JSON) {
+  colors(where: $where) {
+    name
+    id
+  }
+  brands(where: $where) {
+    name
+    id
+  }
+  conditions(where: $where) {
+    name
+    id
+  }
+  materials(where: $where) {
+    name
+    id
+  }
+  sizes(where: $where) {
+    name
+    id
+  }
+  tags(where: $where) {
+    name
+    id
+  }
+  cities(where: $where) {
+    name
+    id
+  }
+  categories(where: { topLevel: true }) {
+    id
+    name
+    subCategories {
+      name
+      id
+      subCategories {
+        name
+        id
+      }
+    }
+  }
+}

@@ -1,0 +1,5 @@
+query Users($where: JSON) {
+  users(where: $where) {
+    id
+  }
+}

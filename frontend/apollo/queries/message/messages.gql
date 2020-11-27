@@ -1,0 +1,13 @@
+query Messages($where: JSON, $limit: Int, $start: Int) {
+  messages(where: $where, limit: $limit, start: $start) {
+    id
+    text
+    created_at
+    fromUser {
+      id
+    }
+    toUser {
+      id
+    }
+  }
+}

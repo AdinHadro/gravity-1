@@ -1,0 +1,11 @@
+query Promos {
+  promos(sort: "order:ASC") {
+    id
+    title
+    description
+    link
+    image {
+      url
+    }
+  }
+}

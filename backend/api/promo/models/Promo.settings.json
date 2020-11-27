@@ -1,0 +1,35 @@
+{
+  "connection": "default",
+  "collectionName": "promos",
+  "info": {
+    "name": "promo",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": [
+      "created_at",
+      "updated_at"
+    ],
+    "comment": ""
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "link": {
+      "type": "string"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
+    },
+    "order": {
+      "type": "integer"
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}

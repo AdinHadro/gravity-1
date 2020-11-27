@@ -1,0 +1,27 @@
+{
+  "connection": "default",
+  "collectionName": "handpickeds",
+  "info": {
+    "name": "handpicked",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": [
+      "created_at",
+      "updated_at"
+    ],
+    "comment": ""
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "order": {
+      "type": "integer"
+    },
+    "products": {
+      "collection": "product"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "defaultConnection": "default",
+  "connections": {
+    "default": {
+      "connector": "strapi-hook-bookshelf",
+      "settings": {
+        "client": "postgres",
+        "host": "localhost",
+        "port": "5432",
+        "database": "trampa",
+        "username": "postgres",
+        "password": "postgres",
+        "ssl": false
+      },
+      "options": {
+        "useNullAsDefault": true
+      }
+    }
+  }
+}

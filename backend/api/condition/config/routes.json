@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/conditions",
+      "handler": "Condition.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/conditions/count",
+      "handler": "Condition.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/conditions/:id",
+      "handler": "Condition.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/conditions",
+      "handler": "Condition.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/conditions/:id",
+      "handler": "Condition.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/conditions/:id",
+      "handler": "Condition.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/handpickeds",
+      "handler": "Handpicked.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/handpickeds/count",
+      "handler": "Handpicked.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/handpickeds/:id",
+      "handler": "Handpicked.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/handpickeds",
+      "handler": "Handpicked.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/handpickeds/:id",
+      "handler": "Handpicked.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/handpickeds/:id",
+      "handler": "Handpicked.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

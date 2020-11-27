@@ -1,0 +1,17 @@
+query LatestProducts {
+  products(sort: "created_at:DESC", limit: 16) {
+    id
+    name
+    images {
+      url
+    }
+    price
+    user {
+      id
+      username
+      image {
+        url
+      }
+    }
+  }
+}

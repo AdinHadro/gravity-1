@@ -1,0 +1,46 @@
+query Products($where: JSON, $limit: Int, $start: Int) {
+  products(where: $where, limit: $limit, start: $start) {
+    id
+    name
+    description
+    images {
+      url
+    }
+    price
+    user {
+      id
+      username
+      image {
+        url
+      }
+    }
+    colors {
+      id
+      name
+    }
+    brands {
+      id
+      name
+    }
+    materials {
+      id
+      name
+    }
+    condition {
+      id
+      name
+    }
+    sizes {
+      id
+      name
+    }
+    tags {
+      id
+      name
+    }
+    city {
+      id
+      name
+    }
+  }
+}

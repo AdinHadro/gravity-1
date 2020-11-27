@@ -1,0 +1,30 @@
+query Filters($where: JSON) {
+  colors(where: $where, sort: "name:ASC") {
+    name
+    id
+  }
+  brands(where: $where, sort: "name:ASC") {
+    name
+    id
+  }
+  conditions(where: $where, sort: "name:ASC") {
+    name
+    id
+  }
+  materials(where: $where, sort: "name:ASC") {
+    name
+    id
+  }
+  sizes(where: $where, sort: "name:ASC") {
+    name
+    id
+  }
+  tags(where: $where, sort: "name:ASC") {
+    name
+    id
+  }
+  cities(where: $where, sort: "name:ASC") {
+    name
+    id
+  }
+}

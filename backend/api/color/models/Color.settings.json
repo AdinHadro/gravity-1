@@ -1,0 +1,25 @@
+{
+  "connection": "default",
+  "collectionName": "colors",
+  "info": {
+    "name": "color",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "name": {
+      "unique": true,
+      "required": true,
+      "type": "string"
+    },
+    "products": {
+      "collection": "product",
+      "dominant": true,
+      "via": "colors"
+    }
+  }
+}

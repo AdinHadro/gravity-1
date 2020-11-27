@@ -1,0 +1,21 @@
+query Handpickeds {
+  handpickeds(sort: "order:ASC") {
+    id
+    title
+    products {
+      id
+      name
+      images {
+        url
+      }
+      price
+      user {
+        id
+        username
+        image {
+          url
+        }
+      }
+    }
+  }
+}

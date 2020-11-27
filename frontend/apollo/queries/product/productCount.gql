@@ -1,0 +1,5 @@
+query ProductCount($where: JSON) {
+  products(where: $where) {
+    id
+  }
+}

@@ -1,0 +1,12 @@
+query Slides {
+  slides(sort: "order:ASC") {
+    id,
+    title,
+    link,
+    subtitle,
+    actionText,
+    image {
+      url
+    }
+  }
+}

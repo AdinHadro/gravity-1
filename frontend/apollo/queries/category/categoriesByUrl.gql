@@ -1,0 +1,26 @@
+query CategoriesByUrl($where: JSON) {
+  categories(where: $where) {
+    id
+    name
+    url
+    image {
+      url
+    }
+    parentCategory {
+      id
+      name
+      url
+      image {
+        url
+      }
+      parentCategory {
+        id
+        name
+        url
+        image {
+          url
+        }
+      }
+    }
+  }
+}

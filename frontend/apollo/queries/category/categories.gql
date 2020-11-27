@@ -1,0 +1,21 @@
+query Categories {
+  categories(where: {topLevel:true}, sort: "order:ASC") {
+    id,
+    name,
+    order,
+    image {
+      url
+    },
+    url,
+    subCategories(sort: "order:ASC") {
+      name,
+      id,
+      url,
+      subCategories(sort: "order:ASC") {
+        name,
+        id,
+        url
+      }
+    }
+  }
+}
