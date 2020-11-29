@@ -61,13 +61,18 @@
       "via": "products",
       "plugin": "users-permissions"
     },
-    "city": {
-      "model": "city",
-      "via": "products"
-    },
     "categories": {
       "collection": "category",
       "via": "products"
+    },
+    "city": {
+      "model": "city",
+      "via": "products"
     }
+    // "Url": {
+    //   "unique": true,
+    //   "required": true,
+    //   "type": "string"
+    // }
   }
 }

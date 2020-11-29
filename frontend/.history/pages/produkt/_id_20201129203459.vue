@@ -71,7 +71,7 @@
                 <div class="text-center">
                   <v-btn
                     rounded
-                    color="sucess"
+                    color="primary"
                     dark
                   >
                     Kupi artikal
@@ -342,7 +342,6 @@ export default {
 </script>
 
 <style scoped>
-.button-buy {padding-top: 15px;}
 
 .product-price {
   margin-left: 36%;

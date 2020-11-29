@@ -66,19 +66,17 @@
             Cijena:
             <span class="item_price">{{product.price}} KM</span>
           </h2>
-                      <div class="button-buy"> 
-                     <template>
+                        <template>
                 <div class="text-center">
                   <v-btn
                     rounded
-                    color="sucess"
+                    color="primary"
                     dark
                   >
                     Kupi artikal
                   </v-btn>
                 </div>
               </template>
-              </div>
               </div>
         </div>
 
@@ -342,7 +340,6 @@ export default {
 </script>
 
 <style scoped>
-.button-buy {padding-top: 15px;}
 
 .product-price {
   margin-left: 36%;

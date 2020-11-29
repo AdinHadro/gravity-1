@@ -36,11 +36,17 @@
               <template>
                 <v-carousel>
                   <v-carousel-item
-                  v-for="(image, index) in product.images"
-                  :key="index"
-                  :src="image.url"
-                  reverse-transition="fade-transition"
-                  transition="fade-transition"
+                                    v-for="(image, index) in product.images"
+
+                
+
+                   
+                    :key="index"
+                    
+                    :src="image.url"
+            
+                    reverse-transition="fade-transition"
+                    transition="fade-transition"
                   ></v-carousel-item>
                 </v-carousel>
               </template>
@@ -49,40 +55,28 @@
           </div>
         </div>
         <div class="col-md-4 single-right-left-desna"> 
-          <div class="product-name"> 
         <h3>{{product.name}}</h3>
-         </div>
+          <h3>
+            <span class="item_price">{{product.price}} KM</span>
+          </h3>
 
 
-          
-          <div class="description">
-            <h5>{{ product.description }}</h5>
+           <div class="rating1">
+            <span class="starRating">
+              <input id="rating5" type="radio" name="rating" value="5" />
+              <label for="rating5">5</label>
+              <input id="rating4" type="radio" name="rating" value="4" />
+              <label for="rating4">4</label>
+              <input id="rating3" type="radio" name="rating" value="3" checked />
+              <label for="rating3">3</label>
+              <input id="rating2" type="radio" name="rating" value="2" />
+              <label for="rating2">2</label>
+              <input id="rating1" type="radio" name="rating" value="1" />
+              <label for="rating1">1</label>
+            </span>
           </div>
 
-
-            <div class="product-price"> 
-                   
-           <h2>
-            Cijena:
-            <span class="item_price">{{product.price}} KM</span>
-          </h2>
-                      <div class="button-buy"> 
-                     <template>
-                <div class="text-center">
-                  <v-btn
-                    rounded
-                    color="sucess"
-                    dark
-                  >
-                    Kupi artikal
-                  </v-btn>
-                </div>
-              </template>
-              </div>
-              </div>
         </div>
-
-        
         <!-- <div class="col-md-8 single-right-left simpleCart_shelfItem">
           <h3>{{product.name}}</h3>
           <v-btn
@@ -342,15 +336,6 @@ export default {
 </script>
 
 <style scoped>
-.button-buy {padding-top: 15px;}
-
-.product-price {
-  margin-left: 36%;
-}
-
-.product-name h3 {
-  margin-left: 33%;
-}
 .divid-two-divs { 
 background: transparent;
 min-height: 100px;

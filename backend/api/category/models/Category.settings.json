@@ -33,18 +33,13 @@
       "via": "related",
       "plugin": "upload"
     },
-    "url": {
-      "type": "string",
-      "unique": true,
-      "required": true
-    },
     "order": {
       "type": "integer"
     },
     "products": {
       "collection": "product",
-      "dominant": true,
-      "via": "categories"
+      "via": "categories",
+      "dominant": true
     }
   }
 }

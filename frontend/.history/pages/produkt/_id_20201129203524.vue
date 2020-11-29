@@ -71,7 +71,7 @@
                 <div class="text-center">
                   <v-btn
                     rounded
-                    color="sucess"
+                    color="primary"
                     dark
                   >
                     Kupi artikal

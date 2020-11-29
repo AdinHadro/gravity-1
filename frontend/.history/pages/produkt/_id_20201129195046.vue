@@ -36,11 +36,17 @@
               <template>
                 <v-carousel>
                   <v-carousel-item
-                  v-for="(image, index) in product.images"
-                  :key="index"
-                  :src="image.url"
-                  reverse-transition="fade-transition"
-                  transition="fade-transition"
+                                    v-for="(image, index) in product.images"
+
+                
+
+                   
+                    :key="index"
+                    
+                    :src="image.url"
+            
+                    reverse-transition="fade-transition"
+                    transition="fade-transition"
                   ></v-carousel-item>
                 </v-carousel>
               </template>
@@ -49,40 +55,7 @@
           </div>
         </div>
         <div class="col-md-4 single-right-left-desna"> 
-          <div class="product-name"> 
-        <h3>{{product.name}}</h3>
-         </div>
-
-
-          
-          <div class="description">
-            <h5>{{ product.description }}</h5>
-          </div>
-
-
-            <div class="product-price"> 
-                   
-           <h2>
-            Cijena:
-            <span class="item_price">{{product.price}} KM</span>
-          </h2>
-                      <div class="button-buy"> 
-                     <template>
-                <div class="text-center">
-                  <v-btn
-                    rounded
-                    color="sucess"
-                    dark
-                  >
-                    Kupi artikal
-                  </v-btn>
-                </div>
-              </template>
-              </div>
-              </div>
         </div>
-
-        
         <!-- <div class="col-md-8 single-right-left simpleCart_shelfItem">
           <h3>{{product.name}}</h3>
           <v-btn
@@ -342,15 +315,6 @@ export default {
 </script>
 
 <style scoped>
-.button-buy {padding-top: 15px;}
-
-.product-price {
-  margin-left: 36%;
-}
-
-.product-name h3 {
-  margin-left: 33%;
-}
 .divid-two-divs { 
 background: transparent;
 min-height: 100px;

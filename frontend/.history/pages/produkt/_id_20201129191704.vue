@@ -1,5 +1,4 @@
 <template>
-
   <div v-if="product.id">
     <div class="page-head_agile_info_w3l">
       <div class="container">
@@ -12,12 +11,7 @@
       <div class="container">
         <div class="divid-two-divs">
         </div>
-      <div class="central-single-product">
-
-        <div class="col-md-4 single-right-left-leva">
-        </div>
-
- <div class="col-md-4 single-right-left">
+        <div class="col-md-4 single-right-left">
           <div class="grid images_3_of_2">
             <!-- <div class="flexslider">
               <ul class="slides">
@@ -36,11 +30,11 @@
               <template>
                 <v-carousel>
                   <v-carousel-item
-                  v-for="(image, index) in product.images"
-                  :key="index"
-                  :src="image.url"
-                  reverse-transition="fade-transition"
-                  transition="fade-transition"
+                    v-for="(item,i) in items"
+                    :key="i"
+                    :src="item.src"
+                    reverse-transition="fade-transition"
+                    transition="fade-transition"
                   ></v-carousel-item>
                 </v-carousel>
               </template>
@@ -48,42 +42,7 @@
 
           </div>
         </div>
-        <div class="col-md-4 single-right-left-desna"> 
-          <div class="product-name"> 
-        <h3>{{product.name}}</h3>
-         </div>
-
-
-          
-          <div class="description">
-            <h5>{{ product.description }}</h5>
-          </div>
-
-
-            <div class="product-price"> 
-                   
-           <h2>
-            Cijena:
-            <span class="item_price">{{product.price}} KM</span>
-          </h2>
-                      <div class="button-buy"> 
-                     <template>
-                <div class="text-center">
-                  <v-btn
-                    rounded
-                    color="sucess"
-                    dark
-                  >
-                    Kupi artikal
-                  </v-btn>
-                </div>
-              </template>
-              </div>
-              </div>
-        </div>
-
-        
-        <!-- <div class="col-md-8 single-right-left simpleCart_shelfItem">
+        <div class="col-md-8 single-right-left simpleCart_shelfItem">
           <h3>{{product.name}}</h3>
           <v-btn
             class="button-delete"
@@ -128,12 +87,12 @@
 
 
 
+            <!-- <h5 v-for="ime in product.user" v-bind:key="'user.username' + ime.id">{{ime.username}}</h5> -->
 
             <div class="clearfix"></div>
           </div>
-             </div> -->
 
-          <!-- <div class="col-md-6 responsive_tabs_agileits">
+          <div class="col-md-6 responsive_tabs_agileits">
             <div id="horizontalTab">
               <div class="msg-design">
                 <h1>Pošalji poruku</h1>
@@ -183,9 +142,9 @@
                 </div>
               </div>
             </div>
-          </div> -->
+          </div>
 
-          <!-- <ul class="social-nav model-3d-0 footer-social w3_agile_social single_page_w3ls">
+          <ul class="social-nav model-3d-0 footer-social w3_agile_social single_page_w3ls">
             <li class="share">Share On :</li>
             <li>
               <a href="#" class="facebook">
@@ -227,17 +186,11 @@
                 </div>
               </a>
             </li>
-          </ul> -->
-     
+          </ul>
+        </div>
         <div class="clearfix"></div>
       </div>
     </div>
-
-
-
-        </div>
-
-       
     <div class="divid-two-divs">
         </div>
   </div>
@@ -342,15 +295,6 @@ export default {
 </script>
 
 <style scoped>
-.button-buy {padding-top: 15px;}
-
-.product-price {
-  margin-left: 36%;
-}
-
-.product-name h3 {
-  margin-left: 33%;
-}
 .divid-two-divs { 
 background: transparent;
 min-height: 100px;

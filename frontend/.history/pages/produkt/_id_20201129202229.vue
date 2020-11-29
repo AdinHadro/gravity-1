@@ -59,27 +59,11 @@
             <h5>{{ product.description }}</h5>
           </div>
 
-
-            <div class="product-price"> 
-                   
            <h2>
             Cijena:
             <span class="item_price">{{product.price}} KM</span>
           </h2>
-                      <div class="button-buy"> 
-                     <template>
-                <div class="text-center">
-                  <v-btn
-                    rounded
-                    color="sucess"
-                    dark
-                  >
-                    Kupi artikal
-                  </v-btn>
-                </div>
-              </template>
-              </div>
-              </div>
+
         </div>
 
         
@@ -342,11 +326,8 @@ export default {
 </script>
 
 <style scoped>
-.button-buy {padding-top: 15px;}
 
-.product-price {
-  margin-left: 36%;
-}
+
 
 .product-name h3 {
   margin-left: 33%;
