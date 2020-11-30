@@ -1,25 +1,161 @@
 <template>
-
   <div v-if="product.id">
     <div class="page-head_agile_info_w3l">
       <div class="container">
         <h3>
-          <span>{{product.name}}</span>
+          <span>{{ product.name }}</span>
         </h3>
       </div>
     </div>
     <div class="banner-bootom-w3-agileits">
       <div class="container">
-        <div class="divid-two-divs">
-        </div>
-      <div class="central-single-product">
+        <div class="divid-two-divs"></div>
+        <div class="central-single-product">
+          <div class="col-md-4 single-right-left-leva">
+            <div id="app">
+              <v-app id="inspire">
+                <v-card>
+                  <h5 style="padding:10px;">
+                    Uz Gravity shop narudžbe su pojednostavljene, do krajnjih
+                    granica, u laka tri koraka do željenog artikla sa našeg web
+                    šopa.
+                  </h5>
+                  <v-toolbar color="grey" dark flat>
+                    <template v-slot:extension>
+                      <v-tabs v-model="tabs" centered>
+                        <v-tab v-for="n in 3" :key="n"> Korak {{ n }} </v-tab>
+                      </v-tabs>
+                    </template>
+                  </v-toolbar>
 
-        <div class="col-md-4 single-right-left-leva">
-        </div>
+                  <v-tabs-items v-model="tabs">
+                    <v-tab-item>
+                      <v-card flat>
+                        <v-card-text>
+                          <h5 style="padding:10px;">
+                            Unesite svoje ime i prezime, adresu (ulicu i grad) i
+                            broj telefona.
+                          </h5>
 
- <div class="col-md-4 single-right-left">
-          <div class="grid images_3_of_2">
-            <!-- <div class="flexslider">
+                          <img
+                            src="~/assets/images/narudzba1.png"
+                            style="max-width:200px; max-height:200px;margin-left: 20%;"
+                          />
+                        </v-card-text>
+                      </v-card>
+                    </v-tab-item>
+                    <v-tab-item>
+                      <v-card flat>
+                        <v-card-title class="headline"> Korak 2 </v-card-title>
+                        <v-card-text>
+                          <p>
+                            Kurcina 2
+                          </p>
+
+                          <p></p>
+
+                          <p class="mb-0"></p>
+                        </v-card-text>
+                      </v-card>
+                    </v-tab-item>
+                    <v-tab-item>
+                      <v-card flat>
+                        <v-card-title class="headline"> Korak 3 </v-card-title>
+                        <v-card-text>
+                          <p>
+                            kurcina 3
+                          </p>
+
+                          <p class="mb-0">
+                            Etiam vitae tortor. Curabitur ullamcorper ultricies
+                            nisi. Sed magna purus, fermentum eu, tincidunt eu,
+                            varius ut, felis. Aliquam lobortis. Suspendisse
+                            potenti.
+                          </p>
+                        </v-card-text>
+                      </v-card>
+                    </v-tab-item>
+                  </v-tabs-items>
+                </v-card>
+              </v-app>
+            </div>
+
+            <template>
+              <v-row align="center">
+                <v-item-group
+                  v-model="window"
+                  class="shrink mr-6"
+                  mandatory
+                  tag="v-flex"
+                >
+                  <v-item
+                    v-for="n in length"
+                    :key="n"
+                    v-slot="{ active, toggle }"
+                  >
+                    <div>
+                      <v-btn :input-value="active" icon @click="toggle">
+                        <v-icon>mdi-record</v-icon>
+                      </v-btn>
+                    </div>
+                  </v-item>
+                </v-item-group>
+
+                <v-col>
+                  <v-window v-model="window" class="elevation-1" vertical>
+                    <v-window-item v-for="n in length" :key="n">
+                      <v-card flat>
+                        <v-card-text>
+                          <v-row class="mb-4" align="center">
+                            <strong class="title">Korak {{ n }}</strong>
+                            <v-spacer></v-spacer>
+                            <v-btn icon>
+                              <v-icon>mdi-account</v-icon>
+                            </v-btn>
+                          </v-row>
+
+                          <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor incididunt ut labore et
+                            dolore magna aliqua. Ut enim ad minim veniam, quis
+                            nostrud exercitation ullamco laboris nisi ut aliquip
+                            ex ea commodo consequat. Duis aute irure dolor in
+                            reprehenderit in voluptate velit esse cillum dolore
+                            eu fugiat nulla pariatur. Excepteur sint occaecat
+                            cupidatat non proident, sunt in culpa qui officia
+                            deserunt mollit anim id est laborum.
+                          </p>
+                        </v-card-text>
+                      </v-card>
+                    </v-window-item>
+                  </v-window>
+                </v-col>
+              </v-row>
+            </template>
+
+            <div class="how-to-order" style="padding:10px;">
+              <h3 style="padding:10px;">
+                Kako naručiti ?
+              </h3>
+              <v-divider></v-divider>
+
+              <div class="info-part" style="padding:10px;">
+                <h5 style="padding:10px;">
+                  Unesite svoje ime i prezime, adresu (ulicu i grad) i broj
+                  telefona.
+                </h5>
+
+                <img
+                  src="~/assets/images/narudzba1.png"
+                  style="max-width:200px; max-height:200px;"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 single-right-left">
+            <div class="grid images_3_of_2">
+              <!-- <div class="flexslider">
               <ul class="slides">
                 <li
                   v-for="(image, index) in product.images"
@@ -36,54 +172,43 @@
               <template>
                 <v-carousel>
                   <v-carousel-item
-                  v-for="(image, index) in product.images"
-                  :key="index"
-                  :src="image.url"
-                  reverse-transition="fade-transition"
-                  transition="fade-transition"
+                    v-for="(image, index) in product.images"
+                    :key="index"
+                    :src="image.url"
+                    reverse-transition="fade-transition"
+                    transition="fade-transition"
                   ></v-carousel-item>
                 </v-carousel>
               </template>
-
-
+            </div>
           </div>
-        </div>
-        <div class="col-md-4 single-right-left-desna"> 
-          <div class="product-name"> 
-        <h3>{{product.name}}</h3>
-         </div>
+          <div class="col-md-4 single-right-left-desna">
+            <div class="product-name">
+              <h3>{{ product.name }}</h3>
+            </div>
 
+            <div class="description">
+              <h5>{{ product.description }}</h5>
+            </div>
 
-          
-          <div class="description">
-            <h5>{{ product.description }}</h5>
+            <div class="product-price">
+              <h2>
+                Cijena:
+                <span class="item_price">{{ product.price }} KM</span>
+              </h2>
+              <div class="button-buy">
+                <template>
+                  <div class="text-center">
+                    <v-btn rounded color="sucess" dark>
+                      Kupi artikal
+                    </v-btn>
+                  </div>
+                </template>
+              </div>
+            </div>
           </div>
 
-
-            <div class="product-price"> 
-                   
-           <h2>
-            Cijena:
-            <span class="item_price">{{product.price}} KM</span>
-          </h2>
-                      <div class="button-buy"> 
-                     <template>
-                <div class="text-center">
-                  <v-btn
-                    rounded
-                    color="sucess"
-                    dark
-                  >
-                    Kupi artikal
-                  </v-btn>
-                </div>
-              </template>
-              </div>
-              </div>
-        </div>
-
-        
-        <!-- <div class="col-md-8 single-right-left simpleCart_shelfItem">
+          <!-- <div class="col-md-8 single-right-left simpleCart_shelfItem">
           <h3>{{product.name}}</h3>
           <v-btn
             class="button-delete"
@@ -228,22 +353,15 @@
               </a>
             </li>
           </ul> -->
-     
-        <div class="clearfix"></div>
+
+          <div class="clearfix"></div>
+        </div>
       </div>
     </div>
 
-
-
-        </div>
-
-       
-    <div class="divid-two-divs">
-        </div>
+    <div class="divid-two-divs"></div>
   </div>
- 
 </template>
-
 
 <script>
 import Avatar from "~/components/Avatar.vue";
@@ -258,21 +376,13 @@ export default {
   },
   data() {
     return {
-      items: [
-          {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
-          },
-          {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
-          },
-          {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
-          },
-          {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
-          },
-        ],
-      
+      tabs: null,
+      text:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+
+      length: 3,
+      window: 0,
+
       breadcrumb: [{ name: "Pretraga" }],
       valid: true,
       rules: {
@@ -342,7 +452,13 @@ export default {
 </script>
 
 <style scoped>
-.button-buy {padding-top: 15px;}
+
+#inspire > div > div > header {
+  height: 0px importa !important;
+}
+.button-buy {
+  padding-top: 15px;
+}
 
 .product-price {
   margin-left: 36%;
@@ -351,9 +467,9 @@ export default {
 .product-name h3 {
   margin-left: 33%;
 }
-.divid-two-divs { 
-background: transparent;
-min-height: 100px;
+.divid-two-divs {
+  background: transparent;
+  min-height: 100px;
 }
 
 .button-delete {
