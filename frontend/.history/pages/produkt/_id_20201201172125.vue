@@ -11,7 +11,128 @@
       <div class="container">
         <div class="divid-two-divs"></div>
         <div class="central-single-product">
-          <div class="col-md-3 single-right-left-leva">
+          <div class="col-md-4 single-right-left-leva">
+            <div id="app">
+              <v-app id="inspire">
+                <v-card>
+                  <h5 style="padding:10px;">
+                    Uz Gravity shop narudžbe su pojednostavljene, do krajnjih
+                    granica, u laka tri koraka do željenog artikla sa našeg web
+                    šopa.
+                  </h5>
+                  <v-toolbar color="grey" dark flat>
+                    <template v-slot:extension>
+                      <v-tabs v-model="tabs" centered>
+                        <v-tab v-for="n in 3" :key="n"> Korak {{ n }} </v-tab>
+                      </v-tabs>
+                    </template>
+                  </v-toolbar>
+
+                  <v-tabs-items v-model="tabs">
+                    <v-tab-item>
+                      <v-card flat>
+                        <v-card-text>
+                          <h5 style="padding:10px;">
+                            Unesite svoje ime i prezime, adresu (ulicu i grad) i
+                            broj telefona.
+                          </h5>
+
+                          <img
+                            src="~/assets/images/narudzba1.png"
+                            style="max-width:200px; max-height:200px;margin-left: 20%;"
+                          />
+                        </v-card-text>
+                      </v-card>
+                    </v-tab-item>
+                    <v-tab-item>
+                      <v-card flat>
+                        <v-card-title class="headline"> Korak 2 </v-card-title>
+                        <v-card-text>
+                          <p>
+                            Kurcina 2
+                          </p>
+
+                          <p></p>
+
+                          <p class="mb-0"></p>
+                        </v-card-text>
+                      </v-card>
+                    </v-tab-item>
+                    <v-tab-item>
+                      <v-card flat>
+                        <v-card-title class="headline"> Korak 3 </v-card-title>
+                        <v-card-text>
+                          <p>
+                            kurcina 3
+                          </p>
+
+                          <p class="mb-0">
+                            Etiam vitae tortor. Curabitur ullamcorper ultricies
+                            nisi. Sed magna purus, fermentum eu, tincidunt eu,
+                            varius ut, felis. Aliquam lobortis. Suspendisse
+                            potenti.
+                          </p>
+                        </v-card-text>
+                      </v-card>
+                    </v-tab-item>
+                  </v-tabs-items>
+                </v-card>
+              </v-app>
+            </div>
+
+            <template>
+              <v-row align="center">
+                <v-item-group
+                  v-model="window"
+                  class="shrink mr-6"
+                  mandatory
+                  tag="v-flex"
+                >
+                  <v-item
+                    v-for="n in length"
+                    :key="n"
+                    v-slot="{ active, toggle }"
+                  >
+                    <div>
+                      <v-btn :input-value="active" icon @click="toggle">
+                        <v-icon>mdi-record</v-icon>
+                      </v-btn>
+                    </div>
+                  </v-item>
+                </v-item-group>
+
+                <v-col>
+                  <v-window v-model="window" class="elevation-1" vertical>
+                    <v-window-item v-for="n in length" :key="n">
+                      <v-card flat>
+                        <v-card-text>
+                          <v-row class="mb-4" align="center">
+                            <strong class="title">Korak {{ n }}</strong>
+                            <v-spacer></v-spacer>
+                            <v-btn icon>
+                              <v-icon>mdi-account</v-icon>
+                            </v-btn>
+                          </v-row>
+
+                          <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor incididunt ut labore et
+                            dolore magna aliqua. Ut enim ad minim veniam, quis
+                            nostrud exercitation ullamco laboris nisi ut aliquip
+                            ex ea commodo consequat. Duis aute irure dolor in
+                            reprehenderit in voluptate velit esse cillum dolore
+                            eu fugiat nulla pariatur. Excepteur sint occaecat
+                            cupidatat non proident, sunt in culpa qui officia
+                            deserunt mollit anim id est laborum.
+                          </p>
+                        </v-card-text>
+                      </v-card>
+                    </v-window-item>
+                  </v-window>
+                </v-col>
+              </v-row>
+            </template>
+
             <div class="how-to-order" style="padding:10px;">
               <h3 style="padding:10px;">
                 Kako naručiti ?
@@ -20,46 +141,19 @@
 
               <div class="info-part" style="padding:10px;">
                 <h5 style="padding:10px;">
-                  Nakon što željene artikle dodate u korpu, unesite svoje ime i
-                  prezime, adresu (ulicu i grad) i broj telefona.
+                  Unesite svoje ime i prezime, adresu (ulicu i grad) i broj
+                  telefona.
                 </h5>
-                <div class="step-1">
-                  <h1>1.</h1>
-                  <img
-                    src="~/assets/images/narudzba1.png"
-                    style="max-width:140px; max-height:140px; margin-left: 70px;"
-                  />
-                </div>
-                <v-divider></v-divider>
-                <h5 style="padding:10px;">
-                  Kada ste upisali podatke i kliknuli na tipku "Završi
-                  narudžbu", naša korisnička podrška će Vas kontaktirati da
-                  potvrdi narudžbu.
-                </h5>
-                <div class="step-2">
-                  <img
-                    src="~/assets/images/phone-call.png"
-                    style="max-width:140px; max-height:140px;"
-                  />
-                  <h1>2.</h1>
-                </div>
-                <v-divider></v-divider>
-                <h5 style="padding:10px;">
-                  Preuzmite Vaš paket na kućnoj adresi.
-                </h5>
-                <div class="step-3">
-                  <h1>3.</h1>
-                  <img
-                    src="~/assets/images/box-1.png"
-                    style="max-width:140px; max-height:140px; margin-left: 70px;"
-                  />
-                </div>
-                <v-divider></v-divider>
+
+                <img
+                  src="~/assets/images/narudzba1.png"
+                  style="max-width:200px; max-height:200px;"
+                />
               </div>
             </div>
           </div>
 
-          <div class="col-md-6 single-right-left">
+          <div class="col-md-4 single-right-left">
             <div class="grid images_3_of_2">
               <!-- <div class="flexslider">
               <ul class="slides">
@@ -88,7 +182,7 @@
               </template>
             </div>
           </div>
-          <div class="col-md-3 single-right-left-desna">
+          <div class="col-md-4 single-right-left-desna">
             <div class="product-name">
               <h3>{{ product.name }}</h3>
             </div>
@@ -358,40 +452,15 @@ export default {
 </script>
 
 <style scoped>
-.step-3 {
-  display: flex;
-}
-.step-3 h1 {
-  padding-top: 20px;
-  font-size: 70px;
-  color: grey;
-}
-.step-2 {
-  display: flex;
-}
-.step-2 h1 {
-  padding-top: 20px;
-  font-size: 70px;
-  color: grey;
-  margin-left: 70px;
-}
-
-.step-1 {
-  display: flex;
-}
-.step-1 h1 {
-  padding-top: 20px;
-  font-size: 70px;
-  color: grey;
-}
-
 #inspire > div > div > header {
   max-height: 64px !important;
 }
+#inspire > div > div > header > div {
 
-#inspire > div > div > header > div > .v-toolbar__content {
-  margin-bottom: -50px important;
+max-height: 0px !important;
+height: 0px !important;
 }
+
 
 .button-buy {
   padding-top: 15px;

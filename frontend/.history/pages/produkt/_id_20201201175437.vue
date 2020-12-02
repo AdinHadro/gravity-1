@@ -11,7 +11,11 @@
       <div class="container">
         <div class="divid-two-divs"></div>
         <div class="central-single-product">
-          <div class="col-md-3 single-right-left-leva">
+          <div class="col-md-4 single-right-left-leva">
+            
+
+            
+
             <div class="how-to-order" style="padding:10px;">
               <h3 style="padding:10px;">
                 Kako naručiti ?
@@ -20,46 +24,33 @@
 
               <div class="info-part" style="padding:10px;">
                 <h5 style="padding:10px;">
-                  Nakon što željene artikle dodate u korpu, unesite svoje ime i
-                  prezime, adresu (ulicu i grad) i broj telefona.
+                  Nakon što željene artikle dodate u korpu, unesite svoje ime i prezime, adresu (ulicu i grad) i broj
+                  telefona.
                 </h5>
-                <div class="step-1">
-                  <h1>1.</h1>
-                  <img
-                    src="~/assets/images/narudzba1.png"
-                    style="max-width:140px; max-height:140px; margin-left: 70px;"
-                  />
-                </div>
-                <v-divider></v-divider>
+                <div class="step-1"> 
+                  <h1>1.</h1> 
+                   <img
+                  src="~/assets/images/narudzba1.png"
+                  style="max-width:140px; max-height:140px; margin-left: 70px;"
+                /></div>
+                 <v-divider></v-divider>
                 <h5 style="padding:10px;">
-                  Kada ste upisali podatke i kliknuli na tipku "Završi
-                  narudžbu", naša korisnička podrška će Vas kontaktirati da
-                  potvrdi narudžbu.
+                  Kada ste upisali podatke i kliknuli na tipku "Završi narudžbu", naša korisnička podrška će Vas kontaktirati da potvrdi narudžbu.
                 </h5>
-                <div class="step-2">
-                  <img
-                    src="~/assets/images/phone-call.png"
-                    style="max-width:140px; max-height:140px;"
-                  />
-                  <h1>2.</h1>
-                </div>
-                <v-divider></v-divider>
-                <h5 style="padding:10px;">
-                  Preuzmite Vaš paket na kućnoj adresi.
-                </h5>
-                <div class="step-3">
-                  <h1>3.</h1>
-                  <img
-                    src="~/assets/images/box-1.png"
-                    style="max-width:140px; max-height:140px; margin-left: 70px;"
-                  />
-                </div>
-                <v-divider></v-divider>
+               <div class="step-2"> 
+                 <img
+                  src="~/assets/images/phone-call.png"
+                  style="max-width:140px; max-height:140px;"
+                />
+                  <h1>2.</h1> 
+                   </div>
+
+
               </div>
             </div>
           </div>
 
-          <div class="col-md-6 single-right-left">
+          <div class="col-md-4 single-right-left">
             <div class="grid images_3_of_2">
               <!-- <div class="flexslider">
               <ul class="slides">
@@ -88,7 +79,7 @@
               </template>
             </div>
           </div>
-          <div class="col-md-3 single-right-left-desna">
+          <div class="col-md-4 single-right-left-desna">
             <div class="product-name">
               <h3>{{ product.name }}</h3>
             </div>
@@ -358,40 +349,29 @@ export default {
 </script>
 
 <style scoped>
-.step-3 {
-  display: flex;
-}
-.step-3 h1 {
+.step-2 {display: flex;}
+.step-2 h1  {
   padding-top: 20px;
-  font-size: 70px;
-  color: grey;
-}
-.step-2 {
-  display: flex;
-}
-.step-2 h1 {
-  padding-top: 20px;
-  font-size: 70px;
-  color: grey;
-  margin-left: 70px;
-}
+      font-size: 70px;
+    color: grey;}
 
-.step-1 {
-  display: flex;
-}
+.step-1 {display: flex;}
 .step-1 h1 {
   padding-top: 20px;
-  font-size: 70px;
-  color: grey;
-}
+      font-size: 70px;
+    color: grey;
+    ;}
+
 
 #inspire > div > div > header {
   max-height: 64px !important;
 }
 
 #inspire > div > div > header > div > .v-toolbar__content {
+
   margin-bottom: -50px important;
 }
+
 
 .button-buy {
   padding-top: 15px;

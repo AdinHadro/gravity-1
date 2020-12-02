@@ -11,7 +11,7 @@
       <div class="container">
         <div class="divid-two-divs"></div>
         <div class="central-single-product">
-          <div class="col-md-3 single-right-left-leva">
+          <div class="col-md-4 single-right-left-leva">
             <div class="how-to-order" style="padding:10px;">
               <h3 style="padding:10px;">
                 Kako naručiti ?
@@ -59,7 +59,7 @@
             </div>
           </div>
 
-          <div class="col-md-6 single-right-left">
+          <div class="col-md-4 single-right-left">
             <div class="grid images_3_of_2">
               <!-- <div class="flexslider">
               <ul class="slides">
@@ -88,7 +88,7 @@
               </template>
             </div>
           </div>
-          <div class="col-md-3 single-right-left-desna">
+          <div class="col-md-4 single-right-left-desna">
             <div class="product-name">
               <h3>{{ product.name }}</h3>
             </div>
