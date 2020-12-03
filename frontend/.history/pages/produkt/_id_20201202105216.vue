@@ -105,16 +105,14 @@
               <div class="button-buy">
                 <template>
                   <div class="text-center">
-                    <v-btn @click="[addToCart(product), snackbar = true]" rounded color ="sucess" dark>
+                    <v-btn rounded color="sucess" dark>
                       Kupi artikal
                     </v-btn>
-                   
                   </div>
                 </template>
               </div>
             </div>
           </div>
-          
 
           <!-- <div class="col-md-8 single-right-left simpleCart_shelfItem">
           <h3>{{product.name}}</h3>
@@ -261,38 +259,6 @@
               </a>
             </li>
           </ul> -->
- <template>
-  <div class="text-center">
-    <v-btn
-      dark
-      color="red darken-2"
-      @click="snackbar = true"
-    >
-      Open Snackbar
-    </v-btn>
-
-    <v-snackbar
-      v-model="snackbar"
-      :multi-line="multiLine"
-    >
-      {{ text }}
-
-      <template >
-  <v-btn small
-              color="primary"
-              dark> Korpa </v-btn>
-               <v-btn
-              color="primary"
-              fab
-              small
-              dark
-            >
-              <v-icon>mdi-basket</v-icon>
-            </v-btn>
-      </template>
-    </v-snackbar>
-  </div>
-</template>
 
           <div class="clearfix"></div>
         </div>
@@ -316,11 +282,13 @@ export default {
   },
   data() {
     return {
-      snackbar: false,
-      text: 'Uspješno ste dodali artikal',
-      multiLine: true,
-      products: [],
-      
+      tabs: null,
+      text:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+
+      length: 3,
+      window: 0,
+
       breadcrumb: [{ name: "Pretraga" }],
       valid: true,
       rules: {
@@ -341,13 +309,6 @@ export default {
     }
   },
   methods: {
-     addToCart (product) {
-       console.log(this) 
-      const basket = this.$auth.$storage.getLocalStorage('basket') || { products: [] } 
-      basket.products.push(product)
-      this.$auth.$storage.setLocalStorage('basket', basket)
-    },
-
     async deleteProduct() {
       await strapi.deleteEntry("products", this.product.id);
       this.$router.replace({ path: "/" });
@@ -369,13 +330,6 @@ export default {
         path: "/poruke"
       });
     }
-  },
-    async created() {
-    this.products = (
-      await this.$apollo.query({
-        query: productsQuery,
-      })
-    ).data.products
   },
   async created() {
     const res = await this.$apollo.query({
