@@ -13,5 +13,6 @@ query LatestProducts {
         url
       }
     }
+    Slug
   }
 }

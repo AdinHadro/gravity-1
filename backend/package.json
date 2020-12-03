@@ -18,6 +18,7 @@
     "eslint-plugin-react": "^7.14.0"
   },
   "dependencies": {
+    "slugify": "^1.4.5",
     "knex": "latest",
     "lodash": "^4.17.5",
     "pg": "^7.12.1",

@@ -68,6 +68,9 @@
     "categories": {
       "collection": "category",
       "via": "products"
+    },
+    "Slug": {
+      "type": "string"
     }
   }
 }

@@ -1,0 +1,54 @@
+query Orders($where: JSON, $limit: Int, $start: Int, $sort: String) {
+  ordersConnection(where: $where) {
+    aggregate {
+      count
+    }
+  }
+  orders(where: $where, sort: $sort, limit: $limit, start: $start) {
+    id
+    created_at
+    updated_at
+    Reference
+    Price
+    Status
+    suppliers {
+      id
+      Name
+    }
+    UserFullName
+    user {
+      id
+    }
+    OrderSupplier {
+      supplier {
+        id
+        Name
+      }
+      Status
+      OrderServiceOption {
+        service {
+          id
+          name
+          item {
+            id
+            name
+            Icon {
+              url
+            }
+          }
+        }
+        ServiceOption {
+          SalePrice
+          CostPrice
+          service_option {
+            id
+          }
+        }
+        Note
+        UserImage {
+          id
+        }
+      }
+    }
+  }
+}

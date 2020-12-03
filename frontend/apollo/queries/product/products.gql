@@ -42,5 +42,6 @@ query Products($where: JSON, $limit: Int, $start: Int) {
       id
       name
     }
+    Slug
   }
 }

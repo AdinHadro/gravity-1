@@ -80,59 +80,6 @@
               </v-app>
             </div>
 
-            <template>
-              <v-row align="center">
-                <v-item-group
-                  v-model="window"
-                  class="shrink mr-6"
-                  mandatory
-                  tag="v-flex"
-                >
-                  <v-item
-                    v-for="n in length"
-                    :key="n"
-                    v-slot="{ active, toggle }"
-                  >
-                    <div>
-                      <v-btn :input-value="active" icon @click="toggle">
-                        <v-icon>mdi-record</v-icon>
-                      </v-btn>
-                    </div>
-                  </v-item>
-                </v-item-group>
-
-                <v-col>
-                  <v-window v-model="window" class="elevation-1" vertical>
-                    <v-window-item v-for="n in length" :key="n">
-                      <v-card flat>
-                        <v-card-text>
-                          <v-row class="mb-4" align="center">
-                            <strong class="title">Korak {{ n }}</strong>
-                            <v-spacer></v-spacer>
-                            <v-btn icon>
-                              <v-icon>mdi-account</v-icon>
-                            </v-btn>
-                          </v-row>
-
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua. Ut enim ad minim veniam, quis
-                            nostrud exercitation ullamco laboris nisi ut aliquip
-                            ex ea commodo consequat. Duis aute irure dolor in
-                            reprehenderit in voluptate velit esse cillum dolore
-                            eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia
-                            deserunt mollit anim id est laborum.
-                          </p>
-                        </v-card-text>
-                      </v-card>
-                    </v-window-item>
-                  </v-window>
-                </v-col>
-              </v-row>
-            </template>
-
             <div class="how-to-order" style="padding:10px;">
               <h3 style="padding:10px;">
                 Kako naručiti ?
@@ -199,14 +146,16 @@
               <div class="button-buy">
                 <template>
                   <div class="text-center">
-                    <v-btn rounded color="sucess" dark>
+                    <v-btn @click="[addToCart(product), snackbar = true]" rounded color ="sucess" dark>
                       Kupi artikal
                     </v-btn>
+                   
                   </div>
                 </template>
               </div>
             </div>
           </div>
+          
 
           <!-- <div class="col-md-8 single-right-left simpleCart_shelfItem">
           <h3>{{product.name}}</h3>
@@ -353,6 +302,38 @@
               </a>
             </li>
           </ul> -->
+ <template>
+  <div class="text-center">
+    <v-btn
+      dark
+      color="red darken-2"
+      @click="snackbar = true"
+    >
+      Open Snackbar
+    </v-btn>
+
+    <v-snackbar
+      v-model="snackbar"
+      :multi-line="multiLine"
+    >
+      {{ text }}
+
+      <template >
+  <v-btn small
+              color="primary"
+              dark> Korpa </v-btn>
+               <v-btn
+              color="primary"
+              fab
+              small
+              dark
+            >
+              <v-icon>mdi-basket</v-icon>
+            </v-btn>
+      </template>
+    </v-snackbar>
+  </div>
+</template>
 
           <div class="clearfix"></div>
         </div>
@@ -376,13 +357,11 @@ export default {
   },
   data() {
     return {
-      tabs: null,
-      text:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-
-      length: 3,
-      window: 0,
-
+      snackbar: false,
+      text: 'Uspješno ste dodali artikal',
+      multiLine: true,
+      products: [],
+      
       breadcrumb: [{ name: "Pretraga" }],
       valid: true,
       rules: {
@@ -403,6 +382,13 @@ export default {
     }
   },
   methods: {
+     addToCart (product) {
+       console.log(this) 
+      const basket = this.$auth.$storage.getLocalStorage('basket') || { products: [] } 
+      basket.products.push(product)
+      this.$auth.$storage.setLocalStorage('basket', basket)
+    },
+
     async deleteProduct() {
       await strapi.deleteEntry("products", this.product.id);
       this.$router.replace({ path: "/" });
@@ -424,6 +410,13 @@ export default {
         path: "/poruke"
       });
     }
+  },
+    async created() {
+    this.products = (
+      await this.$apollo.query({
+        query: productsQuery,
+      })
+    ).data.products
   },
   async created() {
     const res = await this.$apollo.query({

@@ -1,0 +1,7 @@
+mutation UpdateOrder($data: editOrderInput, $orderId: ID!) {
+  updateOrder(input: { where: { id: $orderId }, data: $data }) {
+    order {
+      id
+    }
+  }
+}

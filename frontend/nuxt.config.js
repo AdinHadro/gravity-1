@@ -77,6 +77,7 @@ export default {
   ],
   modules: [
     "@nuxtjs/apollo",
+    "@nuxtjs/auth",
     [
       "@nuxtjs/google-adsense",
       {
