@@ -1,17 +1,19 @@
 <template>
   <div>
-    <div class="page">
       <Slider />
-      <Promo />
+    <div class="page">
+    
       <Handpicked />
+       <Promo />
+
       <div class="divid-two-divs">
         </div>
     </div>
     <div class="sale-w3ls">
       <div class="container">
         <h6>
-          <span>PRVI</span> BiH second hand i online
-          <span>SHOPPING</span> portal
+          <span>Gravity SHOPPING</span> Najraznovrsniji web shop u BiH
+        
         </h6>
       </div>
     </div>

@@ -46,7 +46,7 @@ export default {
       })
     ).data.handpickeds;
 
-    const latest = [{ id: 0, title: "Zadnji dodani artikli", products }];
+    const latest = [{ id: 0, title: "Super ponuda !", products }];
     this.handpickeds = [...latest, ...handpicked];
   }
 };

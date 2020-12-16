@@ -18,18 +18,12 @@ query Products($where: JSON, $limit: Int, $start: Int) {
       id
       name
     }
-    brands {
-      id
-      name
-    }
+    
     materials {
       id
       name
     }
-    condition {
-      id
-      name
-    }
+   
     sizes {
       id
       name
@@ -38,10 +32,7 @@ query Products($where: JSON, $limit: Int, $start: Int) {
       id
       name
     }
-    city {
-      id
-      name
-    }
+    
     Slug
   }
 }

@@ -33,6 +33,11 @@
       "via": "related",
       "plugin": "upload"
     },
+    "url": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
     "order": {
       "type": "integer"
     },

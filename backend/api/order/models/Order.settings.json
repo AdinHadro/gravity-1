@@ -1,44 +1,33 @@
 {
-  "kind": "collectionType",
+  "connection": "default",
   "collectionName": "orders",
   "info": {
-    "name": "Order"
+    "name": "order",
+    "description": ""
   },
   "options": {
     "increments": true,
-    "timestamps": true
+    "timestamps": [
+      "created_at",
+      "updated_at"
+    ],
+    "comment": ""
   },
   "attributes": {
-    "Reference": {
-      "type": "uid"
-    },
-    "Price": {
-      "type": "decimal"
-    },
-    "Status": {
-      "type": "enumeration",
-      "enum": [
-        "order_created",
-        "work_order_received",
-        "work_started",
-        "work_finished",
-        "sent_back_to_customer"
-      ]
-    },
     "Ime": {
-      "type": "string"
+      "type": "text"
     },
     "Prezime": {
-      "type": "string"
-    },
-    "Telefon": {
-      "type": "string"
-    },
-    "Email": {
-      "type": "string"
+      "type": "text"
     },
     "Adresa": {
-      "type": "string"
+      "type": "text"
+    },
+    "Telefon": {
+      "type": "text"
+    },
+    "Grad": {
+      "type": "text"
     },
     "products": {
       "collection": "product"

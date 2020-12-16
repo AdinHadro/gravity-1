@@ -56,14 +56,6 @@
       "plugin": "users-permissions",
       "configurable": false
     },
-    "sentMessages": {
-      "collection": "message",
-      "via": "fromUser"
-    },
-    "recievedMessages": {
-      "collection": "message",
-      "via": "toUser"
-    },
     "image": {
       "model": "file",
       "via": "related",

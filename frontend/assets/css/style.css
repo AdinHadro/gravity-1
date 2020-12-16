@@ -50,6 +50,7 @@ label {
 
 .header {
   background: #000700e0;
+  padding-top: 65px;
 }
 
 .header ul li {
@@ -632,7 +633,7 @@ li.share {
 
 .logo_agile {
   text-align: center;
-  width: 350px;
+  width: 185px;
   height: 100px;
   margin-top: 20px;
   z-index: 2;
@@ -757,7 +758,7 @@ li.share {
 
 .ban-top {
   max-height: 72px;
-  background: #000000;
+  background:#4a4747;
   padding: 0px 0;
 }
 
@@ -1218,7 +1219,7 @@ figure.effect-roxy:hover figcaption::before, figure.effect-roxy:hover p, .agilei
 
 .footer {
   padding: 3em 4em;
-  background: #a7c7c9;
+  background: rgb(0 0 0 / 68%);
 }
 
 .footer_agile_inner_info_w3l {
@@ -1309,7 +1310,7 @@ ul.social-nav.model-3d-0.footer-social.w3_agile_social.two {
 }
 
 .w3-address-grid {
-  background: #b7dbde;
+  background:#888787;
   padding: 5px 1em;
 }
 
@@ -1396,7 +1397,7 @@ p.copy-right a:hover {
 
 .footer-left h2 a span {
   padding: 0 10px;
-  background: #2fdab8;
+  background: #000000;
   font-weight: 600;
 }
 
@@ -2029,7 +2030,7 @@ button.w3view-cart {
 }
 
 .link-product-add-cart {
-  background: #cd9865 none repeat scroll 0 0;
+  background: #414040 none repeat scroll 0 0;
   color: #fff;
   display: inline-block;
   height: 40px;
@@ -2103,7 +2104,7 @@ button.w3view-cart {
 }
 
 .link-product-add-cart:hover {
-  background: #2fdab8 none repeat scroll 0 0;
+  background: #9a9a9a none repeat scroll 0 0;
   color: #fff;
 }
 
@@ -2111,7 +2112,7 @@ button.w3view-cart {
 
 .item-info-product h4 a {
   font-size: 0.9em;
-  color: #fc636b;
+  color: rgba(0, 0, 0, 0.6);
   text-decoration: none;
   font-weight: 600;
 }
@@ -2151,7 +2152,7 @@ a.single-item {
 /*-- /sale --*/
 
 .sale-w3ls {
-  background: url(~assets/images/favorit.jpg);
+  background: url(~assets/images/online-shopping.jpg);
   background-size: cover;
     background-attachment: fixed;
     background-position: center;
@@ -6573,11 +6574,11 @@ p.w3ls_para {
 }
 
 .avatar-wrapper {
-  display: none;
+  display: none !important;
   right: 0;
   position: absolute;
   top: 0;
-  z-index: 25;
+  
   display: inline-block;
 }
 
@@ -6767,6 +6768,32 @@ p.w3ls_para {
 }
 
 #bs-example-navbar-collapse-1 {
-  background: black;
+  background: #4a4747;
 }
 
+.v-toolbar__content,
+.v-toolbar__extension {
+  -webkit-box-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: flex;
+  flex-direction: row-reverse;
+  position: relative;
+  z-index: 0;
+
+}
+.top-toolbar-cont {padding-right: 365px;}
+
+
+.cart-design { padding-left: 12px;
+padding-bottom: 10px; }
+
+.carousel .item { 
+  height: 615px;
+}
+
+.v-application a {color: white;}
+
+.notification-cart {
+  position:fixed;
+}

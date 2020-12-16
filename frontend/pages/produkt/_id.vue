@@ -11,57 +11,60 @@
       <div class="container">
         <div class="divid-two-divs"></div>
         <div class="central-single-product">
-          <div class="col-md-3 single-right-left-leva">
-            <div class="how-to-order" style="padding:10px;">
-              <h3 style="padding:10px;">
-                Kako naručiti ?
-              </h3>
-              <v-divider></v-divider>
+          <div class="container-flux">
+            <div class="flux-1">
+              <div class="col-md-3 single-right-left-leva">
+                <div class="how-to-order" style="padding:10px;">
+                  <h3 style="padding:10px;">
+                    Kako naručiti ?
+                  </h3>
+                  <v-divider></v-divider>
 
-              <div class="info-part" style="padding:10px;">
-                <h5 style="padding:10px;">
-                  Nakon što željene artikle dodate u korpu, unesite svoje ime i
-                  prezime, adresu (ulicu i grad) i broj telefona.
-                </h5>
-                <div class="step-1">
-                  <h1>1.</h1>
-                  <img
-                    src="~/assets/images/narudzba1.png"
-                    style="max-width:140px; max-height:140px; margin-left: 70px;"
-                  />
+                  <div class="info-part" style="padding:10px;">
+                    <h5 style="padding:10px;">
+                      Nakon što željene artikle dodate u korpu, unesite svoje
+                      ime i prezime, adresu (ulicu i grad) i broj telefona.
+                    </h5>
+                    <div class="step-1">
+                      <h1>1.</h1>
+                      <img
+                        src="~/assets/images/narudzba1.png"
+                        style="max-width:140px; max-height:140px; margin-left: 70px;"
+                      />
+                    </div>
+                    <v-divider></v-divider>
+                    <h5 style="padding:10px;">
+                      Kada ste upisali podatke i kliknuli na tipku "Završi
+                      narudžbu", naša korisnička podrška će Vas kontaktirati da
+                      potvrdi narudžbu.
+                    </h5>
+                    <div class="step-2">
+                      <img
+                        src="~/assets/images/phone-call.png"
+                        style="max-width:140px; max-height:140px;"
+                      />
+                      <h1>2.</h1>
+                    </div>
+                    <v-divider></v-divider>
+                    <h5 style="padding:10px;">
+                      Preuzmite Vaš paket na kućnoj adresi.
+                    </h5>
+                    <div class="step-3">
+                      <h1>3.</h1>
+                      <img
+                        src="~/assets/images/box-1.png"
+                        style="max-width:140px; max-height:140px; margin-left: 70px;"
+                      />
+                    </div>
+                    <v-divider></v-divider>
+                  </div>
                 </div>
-                <v-divider></v-divider>
-                <h5 style="padding:10px;">
-                  Kada ste upisali podatke i kliknuli na tipku "Završi
-                  narudžbu", naša korisnička podrška će Vas kontaktirati da
-                  potvrdi narudžbu.
-                </h5>
-                <div class="step-2">
-                  <img
-                    src="~/assets/images/phone-call.png"
-                    style="max-width:140px; max-height:140px;"
-                  />
-                  <h1>2.</h1>
-                </div>
-                <v-divider></v-divider>
-                <h5 style="padding:10px;">
-                  Preuzmite Vaš paket na kućnoj adresi.
-                </h5>
-                <div class="step-3">
-                  <h1>3.</h1>
-                  <img
-                    src="~/assets/images/box-1.png"
-                    style="max-width:140px; max-height:140px; margin-left: 70px;"
-                  />
-                </div>
-                <v-divider></v-divider>
               </div>
             </div>
-          </div>
-
-          <div class="col-md-6 single-right-left">
-            <div class="grid images_3_of_2">
-              <!-- <div class="flexslider">
+            <div class="flux-2">
+              <div class="col-md-6 single-right-left">
+                <div class="grid images_3_of_2">
+                  <!-- <div class="flexslider">
               <ul class="slides">
                 <li
                   v-for="(image, index) in product.images"
@@ -75,46 +78,54 @@
               </ul>
               <div class="clearfix"></div>
             </div> -->
-              <template>
-                <v-carousel>
-                  <v-carousel-item
-                    v-for="(image, index) in product.images"
-                    :key="index"
-                    :src="image.url"
-                    reverse-transition="fade-transition"
-                    transition="fade-transition"
-                  ></v-carousel-item>
-                </v-carousel>
-              </template>
+                  <template>
+                    <v-carousel>
+                      <v-carousel-item
+                        v-for="(image, index) in product.images"
+                        :key="index"
+                        :src="image.url"
+                        reverse-transition="fade-transition"
+                        transition="fade-transition"
+                      ></v-carousel-item>
+                    </v-carousel>
+                  </template>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="col-md-3 single-right-left-desna">
-            <div class="product-name">
-              <h3>{{ product.name }}</h3>
-            </div>
+            '
+            <div class="flux-3">
+              <div class="col-md-3 single-right-left-desna">
+                <div class="product-name">
+                  <h3>{{ product.name }}</h3>
+                </div>
 
-            <div class="description">
-              <h5>{{ product.description }}</h5>
-            </div>
+                <div class="description">
+                  <h5>{{ product.description }}</h5>
+                </div>
 
-            <div class="product-price">
-              <h2>
-                Cijena:
-                <span class="item_price">{{ product.price }} KM</span>
-              </h2>
-              <div class="button-buy">
-                <template>
-                  <div class="text-center">
-                    <v-btn @click="[addToCart(product), snackbar = true]" rounded color ="sucess" dark>
-                      Kupi artikal
-                    </v-btn>
-                   
+                <div class="product-price">
+                  <h3>
+                    Cijena:
+                    <span class="item_price">{{ product.price }} KM</span>
+                  </h3>
+                  <div class="button-buy">
+                    <template>
+                      <div class="text-center">
+                        <v-btn
+                          @click="[addToCart(product), (snackbar = true)]"
+                          rounded
+                          color="sucess"
+                          dark
+                        >
+                          Kupi artikal
+                        </v-btn>
+                      </div>
+                    </template>
                   </div>
-                </template>
+                </div>
               </div>
             </div>
           </div>
-          
 
           <!-- <div class="col-md-8 single-right-left simpleCart_shelfItem">
           <h3>{{product.name}}</h3>
@@ -261,38 +272,20 @@
               </a>
             </li>
           </ul> -->
- <template>
-  <div class="text-center">
-    <v-btn
-      dark
-      color="red darken-2"
-      @click="snackbar = true"
-    >
-      Open Snackbar
-    </v-btn>
+          <template>
+            <div class="text-center">
+              <v-snackbar v-model="snackbar" :multi-line="multiLine">
+                {{ text }}
 
-    <v-snackbar
-      v-model="snackbar"
-      :multi-line="multiLine"
-    >
-      {{ text }}
-
-      <template >
-  <v-btn small
-              color="primary"
-              dark> Korpa </v-btn>
-               <v-btn
-              color="primary"
-              fab
-              small
-              dark
-            >
-              <v-icon>mdi-basket</v-icon>
-            </v-btn>
-      </template>
-    </v-snackbar>
-  </div>
-</template>
+                <template>
+                  <v-btn small color="primary" dark> Korpa </v-btn>
+                  <v-btn color="primary" fab small dark>
+                    <v-icon>mdi-basket</v-icon>
+                  </v-btn>
+                </template>
+              </v-snackbar>
+            </div>
+          </template>
 
           <div class="clearfix"></div>
         </div>
@@ -308,6 +301,7 @@ import Avatar from "~/components/Avatar.vue";
 import productQuery from "~/apollo/queries/product/products.gql";
 import strapi from "~/utils/Strapi";
 import Login from "~/components/Login.vue";
+import { mapMutations } from "vuex";
 
 export default {
   components: {
@@ -317,10 +311,10 @@ export default {
   data() {
     return {
       snackbar: false,
-      text: 'Uspješno ste dodali artikal',
+      text: "Uspješno ste dodali artikal",
       multiLine: true,
       products: [],
-      
+
       breadcrumb: [{ name: "Pretraga" }],
       valid: true,
       rules: {
@@ -330,6 +324,7 @@ export default {
       product: { colors: [{}], images: [], condition: {}, user: {}, city: "" }
     };
   },
+ 
   watch: {
     product: function() {
       this.$nextTick(function() {
@@ -341,11 +336,14 @@ export default {
     }
   },
   methods: {
-     addToCart (product) {
-       console.log(this) 
-      const basket = this.$auth.$storage.getLocalStorage('basket') || { products: [] } 
-      basket.products.push(product)
-      this.$auth.$storage.setLocalStorage('basket', basket)
+    addToCart(product) {
+      console.log(this);
+      const basket = this.$auth.$storage.getLocalStorage("basket") || {
+        products: []
+      };
+      basket.products.push(product);
+      this.$auth.$storage.setLocalStorage("basket", basket);
+      this.newProductAdded ();
     },
 
     async deleteProduct() {
@@ -368,14 +366,18 @@ export default {
       this.$router.replace({
         path: "/poruke"
       });
-    }
+    },
+
+    ...mapMutations({
+      newProductAdded: "cart/newProductAdded"
+    })
   },
-    async created() {
+  async created() {
     this.products = (
       await this.$apollo.query({
-        query: productsQuery,
+        query: productsQuery
       })
-    ).data.products
+    ).data.products;
   },
   async created() {
     const res = await this.$apollo.query({
@@ -404,6 +406,21 @@ export default {
 </script>
 
 <style scoped>
+@media screen and (max-width: 531px) {
+  .container-flux {
+    display: flex;
+    flex-flow: column;
+  }
+  .flux-2 {
+    order: 1;
+  }
+  .flux-3 {
+    order: 2;
+  }
+  .flux-1 {
+    order: 3;
+  }
+}
 .step-3 {
   display: flex;
 }

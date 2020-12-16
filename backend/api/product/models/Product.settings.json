@@ -23,11 +23,6 @@
     "price": {
       "type": "decimal"
     },
-    "brands": {
-      "collection": "brand",
-      "via": "products",
-      "dominant": true
-    },
     "materials": {
       "collection": "material",
       "via": "products",
@@ -43,10 +38,6 @@
       "via": "products",
       "dominant": true
     },
-    "condition": {
-      "model": "condition",
-      "via": "products"
-    },
     "colors": {
       "collection": "color",
       "via": "products"
@@ -61,15 +52,14 @@
       "via": "products",
       "plugin": "users-permissions"
     },
-    "city": {
-      "model": "city",
-      "via": "products"
-    },
     "categories": {
       "collection": "category",
       "via": "products"
     },
     "Slug": {
+      "type": "string"
+    },
+    "City": {
       "type": "string"
     }
   }

@@ -3,8 +3,6 @@
     <div class="header" id="home">
       <div class="container">
         <div class="container-top1">
-          <div class="mail-top-hearder">info@gravity.ba</div>
-
           <ul class="social-nav model-3d-0 footer-social w3_agile_social">
             <li>
               <a href="https://www.facebook.com/fashiontrampa/" class="facebook">
@@ -29,34 +27,15 @@
             </li>
           </ul>
         </div>
+          <Menu />
+         
       </div>
     </div>
     <div class="header-bot">
-      <!-- <div class="top-menu-main">
-        <li>
-          <nuxt-link to="/">Home</nuxt-link>
-        </li>
-        <li>
-          <nuxt-link to="/o-nama">O nama</nuxt-link>
-        </li>
-        <li>
-          <nuxt-link to="/pravila-koristenja">Pravila korištenja</nuxt-link>
-        </li>
-        <li>
-          <nuxt-link to="/pomoc">Pomoć</nuxt-link>
-        </li>
-        <li>
-          <nuxt-link to="/oglasavanje">Oglašavanje</nuxt-link>
-        </li>
-        <li>
-          <nuxt-link to="/contact">Kontakt</nuxt-link>
-        </li>
-      </div> -->
-
       <div class="header-bot_inner_wthreeinfo_header_mid">
         <nuxt-link to="/" class="logo_agile">
         <div class="logo-fix">
-          <img src="~/assets/images/gravity-logo.png" style="max-height: 120px; margin-top:-16px; margin-right:145px" alt /> 
+          <img src="~/assets/images/gravity-logo.png" style="max-height: 120px; margin-top:-16px;" alt /> 
         </div>
         </nuxt-link>
 
@@ -133,40 +112,28 @@
           </div>
         </div> -->
 
-        <div class="clearfix"></div>
+       
       </div>
     </div>
 
-    <Menu />
+  
+    
     <div class="container">
       <adsbygoogle ad-slot="3734586839" data-ad-format="auto" />
     </div>
 
     <div class="page-wrapper">
+        <ScndMenu />
       <nuxt />
     </div>
 
     <div class="footer">
       <div class="footer-right">
-        <div class="top-menu-main-mobile">
-          <li>
-            <nuxt-link to="/">Home</nuxt-link>
-          </li>
-          <li>
-            <nuxt-link to="/o-nama">O nama</nuxt-link>
-          </li>
-          <li>
-            <nuxt-link to="/pravila-koristenja">Pravila korištenja</nuxt-link>
-          </li>
-          <li>
-            <nuxt-link to="/pomoc">Pomoć</nuxt-link>
-          </li>
-          <li>
-            <nuxt-link to="/oglasavanje">Oglašavanje</nuxt-link>
-          </li>
-          <li>
-            <nuxt-link to="/contact">Kontakt</nuxt-link>
-          </li>
+        
+        <div>
+ 
+      
+
         </div>
         <div class="footer_agile_inner_info_w3l">
           <div class="footer-left">
@@ -178,7 +145,7 @@
             <p></p>
             <ul class="social-nav model-3d-0 footer-social w3_agile_social two">
               <li>
-                <a href="https://www.facebook.com/fashiontrampa/" class="facebook">
+                <a href="https://www.facebook.com/onlineprodajagravity/" class="facebook">
                   <div class="front">
                     <i class="fa fa-facebook" aria-hidden="true"></i>
                   </div>
@@ -198,7 +165,7 @@
                 </a>
               </li>
               <li>
-                <a href="https://www.instagram.com/fashiontrampa/" class="instagram">
+                <a href="https://www.instagram.com/ggravityshoes/" class="instagram">
                   <div class="front">
                     <i class="fa fa-instagram" aria-hidden="true"></i>
                   </div>
@@ -232,7 +199,7 @@
                   </div>
                   <div class="w3-address-right">
                     <h6>Broj telefona</h6>
-                    <p>+387 62 257 336</p>
+                    <p>+387 62 417 052</p>
                   </div>
                   <div class="clearfix"></div>
                 </div>
@@ -243,7 +210,7 @@
                   </div>
                   <div class="w3-address-right">
                     <h6>Email Adresa</h6>
-                    <p>Email : trampa@fashiontrampa.ba</p>
+                    <p>Email : info@gravity.ba</p>
                   </div>
                   <div class="clearfix"></div>
                 </div>
@@ -253,7 +220,7 @@
                   </div>
                   <div class="w3-address-right">
                     <h6>Lokacija</h6>
-                    <p>Bosna i Hercegovina 71000, Sarajevo</p>
+                    <p>Bosna i Hercegovina 71000,Terezije BB, Skenderija, Sarajevo</p>
                   </div>
                   <div class="clearfix"></div>
                   <div class="clearfix"></div>
@@ -281,6 +248,7 @@ import Login from "~/components/Login.vue";
 import Register from "~/components/Register.vue";
 import ResetPassword from "~/components/ResetPassword.vue";
 import Avatar from "~/components/Avatar.vue";
+import ScndMenu from "~/components/ScndMenu.vue"
 
 export default {
   components: {
@@ -288,7 +256,8 @@ export default {
     Login,
     Register,
     ResetPassword,
-    Avatar
+    Avatar,
+    ScndMenu,
   },
   data() {
     return {
