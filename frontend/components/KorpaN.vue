@@ -1,23 +1,14 @@
 <template>
   <div>
-    <v-navigation-drawer v-model="drawer" right fixed app temporary width="330px">
-      <div id="korpa-head">
+    <v-navigation-drawer v-model="drawer" fixed app temporary width="330px">
+      <div id="menu-head">
         <router-link to="/" tag="h2"></router-link>
         <v-icon @click="drawer = false">mdi-close</v-icon>
       </div>
 
- 
+      
 
-      <!-- <v-list>
-        <v-list-item v-for="(item, i) in items" :key="i" :to="item.to" router exact>
-          <v-list-item-action>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title v-text="item.title" />
-          </v-list-item-content>
-        </v-list-item>
-      </v-list> -->
+     
 
       <div id="menu-social">
         <div class="social-icons">
@@ -38,9 +29,14 @@
           ></v-toolbar-title>
           <div class="cart-design">
             <v-badge :content="productCount" color="green" >
-              <div class: notification-cart>
+              
               <h1 style="font-size:16px; position: fixed; padding-left:22px; color:green; font-family: 'Roboto';">{{productCount}}</h1>
-              </div>
+              
+          
+              <button @click="toggleComponentOne">Toggle Component One</button>
+              <KorpaN
+        v-if="showComponentOne"
+    />
               <v-icon
                 >mdi-cart-outline</v-icon
               >
@@ -58,9 +54,11 @@ import Login from "~/components/Login.vue";
 import Register from "~/components/Register.vue";
 import ScndMenu from "~/components/ScndMenu.vue";
 
+import KorpaN from "~/components/KorpaN.vue"
 
 export default {
   components: {
+    KorpaN,
     Login,
     Register,
     ScndMenu,
@@ -68,8 +66,7 @@ export default {
   },
   data() {
     return {
-              products: [],
-
+      showComponentOne: false,
       drawer: false,
       items: [
         { icon: "mdi-shopping", title: "Pogledajte korpu", to: "/basket" },
@@ -87,13 +84,10 @@ export default {
       return this.$store.getters["cart/productCount"];
     }
   },
-  created() {
-    const basket = this.$auth.$storage.getLocalStorage("basket") || {
-      products: []
-    };
-    this.products = basket.products;
-  },
   methods: {
+    toggleComponentOne () {
+      this.showComponentOne = !this.showComponentOne;
+    },
     showRegister() {
       this.$refs.register.dialog = true;
     },

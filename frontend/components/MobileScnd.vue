@@ -32,56 +32,7 @@
             data-hover="dropdown"
             data-animations="fadeInDown fadeInRight fadeInUp fadeInLeft"
           >
-            <ul class="nav navbar-nav">
-              <li
-                class="dropdown"
-                v-for="category in categories"
-                v-bind:key="category.id"
-              >
-                <nuxt-link
-                  tag="a"
-                  :to="category.url"
-                  aria-expanded="false"
-                  class="dropdown-toggle"
-                  data-toggle="dropdown"
-                  role="button"
-                  exact
-                >
-                  {{ category.name }}
-                  <span class="caret"></span>
-                </nuxt-link>
-                <ul class="dropdown-menu dropdownhover-bottom" role="menu">
-                  <li
-                    class="dropdown"
-                    v-for="sub in category.subCategories"
-                    v-bind:key="sub.id"
-                  >
-                    <nuxt-link
-                      tag="a"
-                      :to="sub.url"
-                      aria-expanded="false"
-                      exact
-                    >
-                      {{ sub.name }}
-                      <span
-                        v-if="sub.subCategories.length"
-                        class="caret"
-                      ></span>
-                    </nuxt-link>
-                    <ul class="dropdown-menu dropdownhover-right">
-                      <li
-                        v-for="subsub in sub.subCategories"
-                        v-bind:key="subsub.id"
-                      >
-                        <nuxt-link tag="a" :to="subsub.url" exact>{{
-                          subsub.name
-                        }}</nuxt-link>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-            </ul>
+            
           </div>
         </div>
       </nav>

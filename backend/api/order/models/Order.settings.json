@@ -26,9 +26,6 @@
     "Telefon": {
       "type": "text"
     },
-    "Grad": {
-      "type": "text"
-    },
     "products": {
       "collection": "product"
     }

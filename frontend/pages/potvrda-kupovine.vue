@@ -1,12 +1,15 @@
 <template>
   <div>
-    <v-text-field v-model="ime"> </v-text-field>
-    <v-text-field v-model="prezime"> </v-text-field>
-    <v-text-field v-model="telefon"> </v-text-field>
-    <v-text-field v-model="email"> </v-text-field>
-    <v-text-field v-model="adresa"> </v-text-field>
+    <div class="produckti" style="height:400px; width:300px;">
+    </div>
+    <v-text-field v-model="Ime"> </v-text-field>
+    <v-text-field v-model="Prezime"> </v-text-field>
+    <v-text-field v-model="Telefon"> </v-text-field>
+    <v-text-field v-model="Adresa"> </v-text-field>
+    <div class="produckti" style="height:400px; width:300px;">
     <div v-for="product in productiIzKorpe" :key="product.id">
       {{ product.Name }}
+        </div>
     </div>
     <v-btn @click="orderFinal">Završi kupovinu</v-btn>
   </div>
@@ -18,11 +21,11 @@ import orderMutation from '~/apollo/mutations/order/createOrder.gql'
 export default {
   data() {
     return {
-      ime: '',
-      prezime: '',
-      telefon: '',
-      email: '',
-      adresa: '',
+      products:[],
+      Ime: '',
+      Prezime: '',
+      Telefon: '',
+      Adresa: '',
       productiIzKorpe: '',
     }
   },

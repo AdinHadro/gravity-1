@@ -48,7 +48,7 @@
                 </li>
               </ul>
             </div>
-            <div class="community-poll">
+            <!-- Filteri sa po boji gradu itd. <div class="community-poll">
               <v-expansion-panels>
                 <v-expansion-panel>
                   <v-expansion-panel-header>Grad</v-expansion-panel-header>
@@ -184,7 +184,7 @@
                   </v-expansion-panel-content>
                 </v-expansion-panel>
               </v-expansion-panels>
-            </div>
+            </div> -->
             <div class="clearfix"></div>
           </div>
         </div>
@@ -244,10 +244,12 @@ import categoriesQuery from "~/apollo/queries/category/categoriesByUrl";
 import productsQuery from "~/apollo/queries/product/products";
 import productCountQuery from "~/apollo/queries/product/productCount";
 import Product from "../components/Product";
+import Handpicked from "../components/Handpicked.vue";
 
 export default {
   components: {
-    Product
+    Product,
+    Handpicked
   },
   data() {
     return {
