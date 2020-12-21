@@ -8,45 +8,6 @@
       :items="categories"
     ></v-treeview>
 
-    <div class="ban-top">
-      <nav class="navbar navbar-default" role="navigation">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button
-              type="button"
-              class="navbar-toggle collapsed"
-              data-toggle="collapse"
-              data-target="#bs-example-navbar-collapse-1"
-              v-on:click.stop="showMobMenu"
-            >
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-          </div>
-
-          <div
-            class="collapse navbar-collapse visible-md visible-xl"
-            id="bs-example-navbar-collapse-1"
-            data-hover="dropdown"
-            data-animations="fadeInDown fadeInRight fadeInUp fadeInLeft"
-          >
-            
-          </div>
-        </div>
-      </nav>
-      <div class="search-box visible-xs">
-        <v-text-field
-          type="search"
-          name="search"
-          placeholder="Pretraži..."
-          v-model="searchText"
-          v-on:keyup.enter="goToSearch"
-        />
-        <input type="button" value=" " v-on:click="goToSearch" />
-      </div>
-    </div>
     <MobileMenu :categories="categories" v-if="showMobileMenu" />
   </div>
 </template>
@@ -145,7 +106,7 @@ export default {
     position: relative;
   }
   .search-box {
-    margin-right: 5%;
+    margin-right: 11%;
   }
   .search-box > div {
     float: left;

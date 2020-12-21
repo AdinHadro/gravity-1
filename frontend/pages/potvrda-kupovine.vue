@@ -1,38 +1,89 @@
 <template>
   <div>
-    <div class="produckti" style="height:400px; width:300px;">
+    <div class="page">
+      <div class="kupovina">
+        <h3>Lični podatci za dostavu (Molimo vas da unesete tačne podatke)</h3>
+      </div>
+      <h5>Upišite Vaše ime</h5>
+      <v-text-field v-model="ime"> </v-text-field>
+      <h5>Upišite Vaše prezime</h5>
+      <v-text-field v-model="prezime"> </v-text-field>
+      <h5>Upišite Vašu broj telefona</h5>
+      <v-text-field v-model="telefon"> </v-text-field>
+      <h5>
+        Upišite Vaše tačnu adresu u formatu Grad, Poštanski broj, Broj ulice,
+        ukoliko živite u okolnim naseljima molimo Vas da naznačite o kojem se
+        gradu radi.
+      </h5>
+      <v-text-field v-model="adresa"> </v-text-field>
+      <h5>Ukoliko želite kopiju narudžbe na e-mail molimo upišite ga</h5>
+      <v-text-field v-model="email"> </v-text-field>
+
+      <div v-for="(product, index) in products" :key="index">
+        {{ product.name }}
+      </div>
+      <v-btn
+        style="margin-bottom:100px"
+        rounded
+        color="sucess"
+        dark
+        @click="orderFinal"
+        >Završi kupovinu
+      </v-btn>
     </div>
-    <v-text-field v-model="Ime"> </v-text-field>
-    <v-text-field v-model="Prezime"> </v-text-field>
-    <v-text-field v-model="Telefon"> </v-text-field>
-    <v-text-field v-model="Adresa"> </v-text-field>
-    <div class="produckti" style="height:400px; width:300px;">
-    <div v-for="product in productiIzKorpe" :key="product.id">
-      {{ product.Name }}
-        </div>
+
+    <h3>Pogledajte artikle koje naručujete</h3>
+    <div class="kupovina-produkti-style">
+      <div
+        class="kupovina-produkti"
+        v-for="(product, index) in products"
+        :key="index"
+      >
+        <img
+          :src="product.images[0].url"
+          style="width:200px; height:200px; padding-left:10px;"
+        />
+        <h1
+          style="font-size: 15pt;
+    float: right;"
+        >
+          {{ product.price }} KM
+        </h1>
+        <h1
+          style="font-size: 15pt;
+    border-bottom: 1pt solid;"
+        >
+          {{ product.name }}
+        </h1>
+      </div>
+
+      <v-btn rounded color="sucess" dark>
+        Potvrdi kupovinu
+      </v-btn>
     </div>
-    <v-btn @click="orderFinal">Završi kupovinu</v-btn>
   </div>
 </template>
 
 <script>
-import orderMutation from '~/apollo/mutations/order/createOrder.gql'
+import orderMutation from "~/apollo/mutations/order/createOrder.gql";
 
 export default {
   data() {
     return {
-      products:[],
-      Ime: '',
-      Prezime: '',
-      Telefon: '',
-      Adresa: '',
-      productiIzKorpe: '',
+      ime: "",
+      prezime: "",
+      telefon: "",
+      adresa: "",
+      email: ""
+    };
+  },
+  computed: {
+    products() {
+      return this.$store.getters["cart/products"];
     }
   },
-  created() {
-    const korpa = this.$auth.$storage.getLocalStorage('basket') || { products: [] }
-    this.productiIzKorpe = korpa.products
-  },
+  created() {},
+
   methods: {
     orderFinal() {
       this.$apollo.mutate({
@@ -44,11 +95,13 @@ export default {
             Telefon: this.telefon,
             Email: this.email,
             Adresa: this.adresa,
-            products: this.productiIzKorpe.map((x) => x.id),
-          },
-        },
-      })
-    },
-  },
-}
+            OrderProducts: this.products.map(x => {
+              return { product: x.id, size: x.selectedSize.id };
+            })
+          }
+        }
+      });
+    }
+  }
+};
 </script>

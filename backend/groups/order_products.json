@@ -1,0 +1,16 @@
+{
+  "info": {
+    "name": "OrderProducts",
+    "description": ""
+  },
+  "connection": "default",
+  "collectionName": "groups_order_products",
+  "attributes": {
+    "product": {
+      "model": "product"
+    },
+    "size": {
+      "model": "size"
+    }
+  }
+}

@@ -5,8 +5,7 @@
         <router-link to="/" tag="h2"></router-link>
         <v-icon @click="drawer = false">mdi-close</v-icon>
       </div>
-      <div class="menu-fix" style="padding-top:50px;"> 
-      </div>
+      <div class="menu-fix" style="padding-top:50px;"></div>
       <MobileScnd />
 
       <div id="menu-social">
@@ -33,31 +32,49 @@
       </div>
       <div class="basket-full" style="padding-top:50px;">
         <div class="products">
-          <div class="prodcut" v-for="product in products" :key="product.id">
+          <div
+            class="prodcut"
+            v-for="(product, index) in products"
+            :key="index"
+          >
             <img
               :src="product.images[0].url"
               style="width:200px; height:200px; padding-left:10px;"
             />
-             <h1
+            <h1
               style="font-size: 15pt;
     float: right;"
             >
               {{ product.price }} KM
             </h1>
+            <div class="button-style-delete">
+              <v-btn
+                @click="[deleteProduct(product)]"
+                style="font-size:7pt"
+                rounded
+                color="red"
+                dark
+              >
+                Očisti korpu
+              </v-btn>
+            </div>
             <h1
               style="font-size: 15pt;
     border-bottom: 1pt solid;"
             >
               {{ product.name }}
             </h1>
-           
           </div>
-
-         
-
-          <v-btn rounded color="sucess" dark>
-            Potvrdi kupovinu
-          </v-btn>
+          <nuxt-link to="/potvrda-kupovine">
+            <v-btn
+              style="margin-top:20px; margin-left:20%;"
+              rounded
+              color="sucess"
+              dark
+            >
+              Potvrdi kupovinu
+            </v-btn>
+          </nuxt-link>
         </div>
       </div>
 
@@ -116,7 +133,6 @@ export default {
       showComponentOne: false,
       drawer: false,
       drawer1: false,
-      products: [],
       items: [
         { icon: "mdi-shopping", title: "Pogledajte korpu", to: "/basket" },
         { icon: "mdi-plus-box", title: "Pomoć", to: "/orders" },
@@ -131,9 +147,15 @@ export default {
 
     productCount() {
       return this.$store.getters["cart/productCount"];
+    },
+    products() {
+      return this.$store.getters["cart/products"];
     }
   },
   methods: {
+    deleteProduct(product) {
+      this.deleteProduct(product);
+    },
     toggleComponentOne() {
       this.showComponentOne = !this.showComponentOne;
     },
@@ -141,15 +163,11 @@ export default {
       this.$refs.register.dialog = true;
     },
     ...mapMutations({
-      logout: "authentication/logout"
+      logout: "authentication/logout",
+      deleteProduct: "cart/deleteProduct"
     })
   },
-  created() {
-    const basket = this.$auth.$storage.getLocalStorage("basket") || {
-      products: []
-    };
-    this.products = basket.products;
-  }
+  created() {}
 };
 </script>
 <style scoped>

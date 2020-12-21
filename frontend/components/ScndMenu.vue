@@ -9,7 +9,6 @@
               class="navbar-toggle collapsed"
               data-toggle="collapse"
               data-target="#bs-example-navbar-collapse-1"
-             
             >
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
@@ -25,7 +24,11 @@
             data-animations="fadeInDown fadeInRight fadeInUp fadeInLeft"
           >
             <ul class="nav navbar-nav">
-              <li class="dropdown" v-for="category in categories" v-bind:key="category.id">
+              <li
+                class="dropdown"
+                v-for="category in categories"
+                v-bind:key="category.id"
+              >
                 <nuxt-link
                   tag="a"
                   :to="category.url"
@@ -39,14 +42,31 @@
                   <span class="caret"></span>
                 </nuxt-link>
                 <ul class="dropdown-menu dropdownhover-bottom" role="menu">
-                  <li class="dropdown" v-for="sub in category.subCategories" v-bind:key="sub.id">
-                    <nuxt-link tag="a" :to="sub.url" aria-expanded="false" exact>
+                  <li
+                    class="dropdown"
+                    v-for="sub in category.subCategories"
+                    v-bind:key="sub.id"
+                  >
+                    <nuxt-link
+                      tag="a"
+                      :to="sub.url"
+                      aria-expanded="false"
+                      exact
+                    >
                       {{ sub.name }}
-                      <span v-if="sub.subCategories.length" class="caret"></span>
+                      <span
+                        v-if="sub.subCategories.length"
+                        class="caret"
+                      ></span>
                     </nuxt-link>
                     <ul class="dropdown-menu dropdownhover-right">
-                      <li v-for="subsub in sub.subCategories" v-bind:key="subsub.id">
-                        <nuxt-link tag="a" :to="subsub.url" exact>{{subsub.name}}</nuxt-link>
+                      <li
+                        v-for="subsub in sub.subCategories"
+                        v-bind:key="subsub.id"
+                      >
+                        <nuxt-link tag="a" :to="subsub.url" exact>{{
+                          subsub.name
+                        }}</nuxt-link>
                       </li>
                     </ul>
                   </li>
@@ -67,8 +87,6 @@
         <input type="button" value=" " v-on:click="goToSearch" />
       </div>
     </div>
-   
-  
   </div>
 </template>
 
@@ -76,11 +94,8 @@
 import { mapMutations } from "vuex";
 import categoriesQuery from "~/apollo/queries/category/categories";
 
-
 export default {
-  components: {
-
-  },
+  components: {},
   data() {
     return {
       categories: [],
@@ -88,8 +103,7 @@ export default {
       searchText: ""
     };
   },
-  watch: {
-  },
+  watch: {},
   apollo: {
     categories: {
       prefetch: true,
@@ -105,7 +119,7 @@ export default {
     ...mapMutations({
       logout: "auth/logout"
     }),
-    
+
     goToSearch() {
       this.showMobileMenu = false;
       this.$router.push({
@@ -159,8 +173,8 @@ export default {
     display: flex;
     justify-content: space-between;
   }
-  }
-  .navbar-default .navbar-nav>li>a {
-    color: #e2e1e1;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #e2e1e1;
 }
 </style>

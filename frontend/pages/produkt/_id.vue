@@ -12,6 +12,81 @@
         <div class="divid-two-divs"></div>
         <div class="central-single-product">
           <div class="container-flux">
+            <div class="flux-2">
+              <div class="col-md-6 col-sm-12 col-xs-12 single-right-left">
+                <!-- <div class="flexslider">
+              <ul class="slides">
+                <li
+                  v-for="(image, index) in product.images"
+                  v-bind:key="index"
+                  :data-thumb="image.url"
+                >
+                  <div class="thumb-image">
+                    <img :src="image.url" data-imagezoom="true" class="img-responsive" />
+                  </div>
+                </li>
+              </ul>
+              <div class="clearfix"></div>
+            </div> -->
+                <template>
+                  <v-carousel>
+                    <v-carousel-item
+                      v-for="(image, index) in product.images"
+                      :key="index"
+                      :src="image.url"
+                      reverse-transition="fade-transition"
+                      transition="fade-transition"
+                    ></v-carousel-item>
+                  </v-carousel>
+                </template>
+                <v-select
+                  v-model="selectedSize"
+                  :items="product.sizes"
+                  item-text="name"
+                  item-value="id"
+                  label="Označite veličinu artikla"
+                  persistent-hint
+                  return-object
+                  single-line
+                  style="padding: 10px;"
+                ></v-select>
+              </div>
+            </div>
+
+            <div class="flux-3">
+              <div class="col-md-3 single-right-left-desna">
+                <div class="product-name">
+                  <h3>{{ product.name }}</h3>
+                </div>
+
+                <div class="description">
+                  <h5>{{ product.description }}</h5>
+                </div>
+
+                <div class="product-price">
+                  <h3>
+                    Cijena:
+                    <span class="item_price">{{ product.price }} KM</span>
+                  </h3>
+                  <div class="button-buy">
+                    <template>
+                      <div class="text-center">
+                        <v-btn
+                          :disabled="!selectedSize"
+                          @click="[addToCart(product), (snackbar = true)]"
+                          rounded
+                          color="sucess"
+                          dark
+                        >
+                          Kupi artikal
+                        </v-btn>
+                      </div>
+                    </template>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div class="flux-1">
               <div class="col-md-3 single-right-left-leva">
                 <div class="how-to-order" style="padding:10px;">
@@ -57,70 +132,6 @@
                       />
                     </div>
                     <v-divider></v-divider>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="flux-2">
-              <div class="col-md-6 single-right-left">
-                <div class="grid images_3_of_2">
-                  <!-- <div class="flexslider">
-              <ul class="slides">
-                <li
-                  v-for="(image, index) in product.images"
-                  v-bind:key="index"
-                  :data-thumb="image.url"
-                >
-                  <div class="thumb-image">
-                    <img :src="image.url" data-imagezoom="true" class="img-responsive" />
-                  </div>
-                </li>
-              </ul>
-              <div class="clearfix"></div>
-            </div> -->
-                  <template>
-                    <v-carousel>
-                      <v-carousel-item
-                        v-for="(image, index) in product.images"
-                        :key="index"
-                        :src="image.url"
-                        reverse-transition="fade-transition"
-                        transition="fade-transition"
-                      ></v-carousel-item>
-                    </v-carousel>
-                  </template>
-                </div>
-              </div>
-            </div>
-            '
-            <div class="flux-3">
-              <div class="col-md-3 single-right-left-desna">
-                <div class="product-name">
-                  <h3>{{ product.name }}</h3>
-                </div>
-
-                <div class="description">
-                  <h5>{{ product.description }}</h5>
-                </div>
-
-                <div class="product-price">
-                  <h3>
-                    Cijena:
-                    <span class="item_price">{{ product.price }} KM</span>
-                  </h3>
-                  <div class="button-buy">
-                    <template>
-                      <div class="text-center">
-                        <v-btn
-                          @click="[addToCart(product), (snackbar = true)]"
-                          rounded
-                          color="sucess"
-                          dark
-                        >
-                          Kupi artikal
-                        </v-btn>
-                      </div>
-                    </template>
                   </div>
                 </div>
               </div>
@@ -310,6 +321,7 @@ export default {
   },
   data() {
     return {
+      selectedSize: 0,
       snackbar: false,
       text: "Uspješno ste dodali artikal",
       multiLine: true,
@@ -324,7 +336,7 @@ export default {
       product: { colors: [{}], images: [], condition: {}, user: {}, city: "" }
     };
   },
- 
+
   watch: {
     product: function() {
       this.$nextTick(function() {
@@ -337,17 +349,11 @@ export default {
   },
   methods: {
     addToCart(product) {
-      console.log(this);
-      const basket = this.$auth.$storage.getLocalStorage("basket") || {
-        products: []
-      };
-      basket.products.push(product);
-      this.$auth.$storage.setLocalStorage("basket", basket);
-      this.newProductAdded ();
+      product.selectedSize = this.selectedSize;
+      this.addProduct(product);
     },
-
-    async deleteProduct() {
-      await strapi.deleteEntry("products", this.product.id);
+    deleteProduct(product) {
+      this.deleteProduct(product);
       this.$router.replace({ path: "/" });
     },
     async sendMessage() {
@@ -369,7 +375,8 @@ export default {
     },
 
     ...mapMutations({
-      newProductAdded: "cart/newProductAdded"
+      addProduct: "cart/addProduct",
+      deleteProduct: "cart/deleteProduct"
     })
   },
   async created() {
@@ -465,7 +472,7 @@ export default {
 }
 
 .product-name h3 {
-  margin-left: 33%;
+  text-align: center;
 }
 .divid-two-divs {
   background: transparent;

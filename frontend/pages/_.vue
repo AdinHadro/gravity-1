@@ -2,11 +2,15 @@
   <div>
     <div
       class="page-head_agile_info_w3l"
-      v-bind:style="topCategoryImage ? { 'background-image': 'url(' + topCategoryImage + ')' } : ''"
+      v-bind:style="
+        topCategoryImage
+          ? { 'background-image': 'url(' + topCategoryImage + ')' }
+          : ''
+      "
     >
       <div class="container">
         <h3>
-          {{breadcrumb[breadcrumb.length - 1].name}}
+          {{ breadcrumb[breadcrumb.length - 1].name }}
           <span>Kategorija</span>
         </h3>
         <div class="services-breadcrumb">
@@ -39,10 +43,20 @@
                 <li>
                   <div id="slider-range"></div>
                   <div class="range-inputs">
-                    <input v-model="priceFrom" v-on:keyup="search()" type="number" id="amount1" />
+                    <input
+                      v-model="priceFrom"
+                      v-on:keyup="search()"
+                      type="number"
+                      id="amount1"
+                    />
                     <label>KM</label>
                     <span>-</span>
-                    <input v-model="priceTo" v-on:keyup="search()" type="number" id="amount2" />
+                    <input
+                      v-model="priceTo"
+                      v-on:keyup="search()"
+                      type="number"
+                      id="amount2"
+                    />
                     <label>KM</label>
                   </div>
                 </li>
@@ -222,14 +236,26 @@
             </div>
             <div class="clearfix"></div>
             <div class="row pagination-wrapper" v-if="productCount > 0">
-              <v-pagination v-model="page" :length="pageLength" :total-visible="6"></v-pagination>
+              <v-pagination
+                v-model="page"
+                :length="pageLength"
+                :total-visible="6"
+              ></v-pagination>
             </div>
             <div class="no-results" v-if="productCount === 0">
-              <h2>Nema produkata za trazene pretrage. Izaberite drugu kategoriju ili promijenite uslove pretrage.</h2>
+              <h2>
+                Nema produkata za trazene pretrage. Izaberite drugu kategoriju
+                ili promijenite uslove pretrage.
+              </h2>
             </div>
           </div>
           <div class="loader" v-if="loading">
-            <v-progress-circular :size="70" :width="7" color="purple" indeterminate></v-progress-circular>
+            <v-progress-circular
+              :size="70"
+              :width="7"
+              color="purple"
+              indeterminate
+            ></v-progress-circular>
           </div>
           <div class="clearfix"></div>
         </div>
@@ -263,19 +289,17 @@ export default {
       pageLength: 1,
       filters: {
         colors: [],
-        conditions: [],
-        brands: [],
+
         sizes: [],
         materials: [],
-        tags: [],
-        cities: []
+        tags: []
       },
       priceFrom: null,
       priceTo: null,
       orderBy: "created_at:DESC",
       colors: [],
       conditions: [],
-      brands: [],
+
       sizes: [],
       materials: [],
       tags: [],
@@ -367,12 +391,11 @@ export default {
       if (this.priceFrom) variables.price_gte = this.priceFrom;
       if (this.priceTo) variables.price_lte = this.priceTo;
       if (this.colors.length) variables.colors_in = this.colors;
-      if (this.conditions.length) variables.condition_in = this.conditions;
-      if (this.brands.length) variables.brands_in = this.brands;
+
       if (this.sizes.length) variables.sizes_in = this.sizes;
       if (this.materials.length) variables.materials_in = this.materials;
       if (this.tags.length) variables.tags_in = this.tags;
-      if (this.cities.length) variables.city_in = this.cities;
+
       variables._sort = this.orderBy;
 
       const req = {

@@ -26,8 +26,13 @@
     "Telefon": {
       "type": "text"
     },
-    "products": {
-      "collection": "product"
+    "OrderProducts": {
+      "group": "order_products",
+      "repeatable": true,
+      "type": "group"
+    },
+    "Email": {
+      "type": "text"
     }
   }
 }
