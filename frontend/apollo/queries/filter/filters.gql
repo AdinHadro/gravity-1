@@ -3,14 +3,7 @@ query Filters($where: JSON) {
     name
     id
   }
-  brands(where: $where, sort: "name:ASC") {
-    name
-    id
-  }
-  conditions(where: $where, sort: "name:ASC") {
-    name
-    id
-  }
+
   materials(where: $where, sort: "name:ASC") {
     name
     id
@@ -20,10 +13,6 @@ query Filters($where: JSON) {
     id
   }
   tags(where: $where, sort: "name:ASC") {
-    name
-    id
-  }
-  cities(where: $where, sort: "name:ASC") {
     name
     id
   }

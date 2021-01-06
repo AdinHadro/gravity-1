@@ -19,9 +19,6 @@
       <h5>Ukoliko želite kopiju narudžbe na e-mail molimo upišite ga</h5>
       <v-text-field v-model="email"> </v-text-field>
 
-      <div v-for="(product, index) in products" :key="index">
-        {{ product.name }}
-      </div>
       <v-btn
         style="margin-bottom:100px"
         rounded
@@ -30,36 +27,31 @@
         @click="orderFinal"
         >Završi kupovinu
       </v-btn>
-    </div>
-
-    <h3>Pogledajte artikle koje naručujete</h3>
-    <div class="kupovina-produkti-style">
-      <div
-        class="kupovina-produkti"
-        v-for="(product, index) in products"
-        :key="index"
-      >
-        <img
-          :src="product.images[0].url"
-          style="width:200px; height:200px; padding-left:10px;"
-        />
-        <h1
-          style="font-size: 15pt;
-    float: right;"
+      <h3 style="text-align: center; border-bottom: 3px solid;">
+        Pogledajte artikle koje naručujete
+      </h3>
+      <div class="kupovina-produkti-style-2">
+        <div
+          class="kupovina-produkti"
+          v-for="(product, index) in products"
+          :key="index"
         >
-          {{ product.price }} KM
-        </h1>
-        <h1
-          style="font-size: 15pt;
-    border-bottom: 1pt solid;"
-        >
-          {{ product.name }}
-        </h1>
+          <img
+            :src="product.images[0].url"
+            style="width:338px; height:338px; padding-top:30px"
+          />
+          <div class="price-name-bill">
+            <h1 style="font-size: 15pt;">{{ product.price }} KM</h1>
+            <h1 style="font-size: 15pt;">
+              {{ product.name }}
+            </h1>
+          </div>
+          <h1 style="font-size: 15pt; padding-bottom:100px; padding-top:30px;">
+            Cijena poštarine za sve gradovue je 6 KM, vaša ukupna cijena za
+            platiti jeste :
+          </h1>
+        </div>
       </div>
-
-      <v-btn rounded color="sucess" dark>
-        Potvrdi kupovinu
-      </v-btn>
     </div>
   </div>
 </template>

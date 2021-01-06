@@ -3,7 +3,7 @@ export const state = () => {
 };
 
 export const getters = {
-  productCount: state => {
+  productCountz: state => {
     return state.products.length;
   },
   products: state => {

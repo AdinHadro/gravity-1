@@ -39,13 +39,13 @@
           >
             <img
               :src="product.images[0].url"
-              style="width:200px; height:200px; padding-left:10px;"
+              style="width:300px; height:250px; padding-left:10px;"
             />
             <h1
               style="font-size: 15pt;
     float: right;"
             >
-              {{ product.price }} KM
+              {{ product.price }} KM {{ total }} KM
             </h1>
             <div class="button-style-delete">
               <v-btn
@@ -99,7 +99,7 @@
             <h1
               style="font-size:16px; position: fixed; padding-left:28px; color:green; font-family: 'Roboto';"
             >
-              {{ productCount }}
+              {{ productCountz }}
             </h1>
 
             <v-app-bar-nav-icon @click.stop="drawer1 = !drawer1">
@@ -141,12 +141,21 @@ export default {
     };
   },
   computed: {
+    total() {
+      const prods = this.$store.getters["cart/products"];
+      return prods
+        .map(produkt => produkt.price)
+        .reduce(
+          (prethodnaCijena, trenutnaCijena) => prethodnaCijena + trenutnaCijena,
+          0
+        );
+    },
     user() {
       return this.$store.getters["authentication/user"];
     },
 
-    productCount() {
-      return this.$store.getters["cart/productCount"];
+    productCountz() {
+      return this.$store.getters["cart/productCountz"];
     },
     products() {
       return this.$store.getters["cart/products"];

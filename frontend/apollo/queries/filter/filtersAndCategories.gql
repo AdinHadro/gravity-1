@@ -3,14 +3,7 @@ query FiltersAndCategories($where: JSON) {
     name
     id
   }
-  brands(where: $where) {
-    name
-    id
-  }
-  conditions(where: $where) {
-    name
-    id
-  }
+
   materials(where: $where) {
     name
     id
@@ -23,10 +16,7 @@ query FiltersAndCategories($where: JSON) {
     name
     id
   }
-  cities(where: $where) {
-    name
-    id
-  }
+
   categories(where: { topLevel: true }) {
     id
     name
