@@ -1,6 +1,6 @@
 {
-  "host": "gravitydb.postgres.database.azure.com",
-  "port": "5432",
+  "host": "localhost",
+  "port": "${process.env.PORT || 1337}",
   "production": true,
   "proxy": {
     "enabled": false
