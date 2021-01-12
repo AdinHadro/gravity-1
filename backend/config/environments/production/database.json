@@ -5,11 +5,11 @@
       "connector": "strapi-hook-bookshelf",
       "settings": {
         "client": "postgres",
-        "host": "${process.env.DATABASE_HOST}",
-        "port": "${process.env.DATABASE_PORT}",
-        "database": "${process.env.DATABASE_NAME}",
-        "username": "${process.env.DATABASE_USERNAME}",
-        "password": "${process.env.DATABASE_PASSWORD}",
+        "host": "gravitydb.postgres.database.azure.com",
+        "port": "5432",
+        "database": "gravity",
+        "username": "gravity@gravitydb",
+        "password": "!oblivion17",
         "ssl": true
       },
       "options": {
