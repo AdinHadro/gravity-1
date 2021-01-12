@@ -45,7 +45,7 @@
               style="font-size: 15pt;
     float: right;"
             >
-              {{ product.price }} KM {{ total }} KM
+              {{ product.price }} KM
             </h1>
             <div class="button-style-delete">
               <v-btn
@@ -55,7 +55,7 @@
                 color="red"
                 dark
               >
-                Očisti korpu
+                Izbrišite artikal
               </v-btn>
             </div>
             <h1
@@ -63,6 +63,14 @@
     border-bottom: 1pt solid;"
             >
               {{ product.name }}
+            </h1>
+          </div>
+          <div class="ukupno-design">
+            <h1
+              style="font-size: 15pt;
+    border-bottom: 1pt solid;"
+            >
+              Ukupno {{ total }} KM
             </h1>
           </div>
           <nuxt-link to="/potvrda-kupovine">

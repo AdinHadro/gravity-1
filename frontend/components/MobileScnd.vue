@@ -1,12 +1,6 @@
 <template>
   <div class="menu-wrapper">
-    <v-treeview
-      rounded
-      hoverable
-      activatable
-      open-on-click
-      :items="categories"
-    ></v-treeview>
+    <v-treeview rounded hoverable :items="categories"></v-treeview>
 
     <MobileMenu :categories="categories" v-if="showMobileMenu" />
   </div>
