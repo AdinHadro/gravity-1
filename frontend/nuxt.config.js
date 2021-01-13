@@ -102,7 +102,7 @@ export default {
   apollo: {
     clientConfigs: {
       default: {
-        httpEndpoint: "http://localhost:1337/graphql",
+        httpEndpoint: "https://admin.gravity.ba/graphql",
         tokenName: "jwt",
         authenticationType: "Bearer"
       }
@@ -142,7 +142,7 @@ export default {
     optimizeCSS: true
   },
   env: {
-    CMS_URL: "http://localhost:1337"
+    CMS_URL: "https://admin.gravity.ba"
   },
   render: {
     compressor: shrinkRay(),
