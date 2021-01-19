@@ -29,7 +29,7 @@
       "via": "role",
       "plugin": "users-permissions",
       "configurable": false,
-      "isVirtual": true
+      "isVirtual": false
     },
     "users": {
       "collection": "user",
