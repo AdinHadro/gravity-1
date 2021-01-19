@@ -28,8 +28,8 @@
       "collection": "permission",
       "via": "role",
       "plugin": "users-permissions",
-      "configurable": false,
-      "isVirtual": false
+      "configurable": true,
+      "isVirtual": true
     },
     "users": {
       "collection": "user",
