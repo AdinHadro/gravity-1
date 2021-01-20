@@ -9,7 +9,7 @@
         "port": "5432",
         "database": "gravity",
         "username": "gravity@gravitydb",
-        "password": "Jebimater13",
+        "password": "!Jebimater13",
         "ssl": true
       },
       "options": {
