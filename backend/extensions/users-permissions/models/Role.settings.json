@@ -12,7 +12,7 @@
     "name": {
       "type": "string",
       "minLength": 3,
-      "required": false,
+      "required": true,
       "configurable": false
     },
     "description": {
@@ -29,7 +29,7 @@
       "via": "role",
       "plugin": "users-permissions",
       "configurable": false,
-      "isVirtual": true
+      "isVirtual": false
     },
     "users": {
       "collection": "user",
